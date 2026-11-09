@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import { allPapers, byId, allTopics, topicByslug } from '../../lib/data';
+const palette = ['#e8640c','#1f7a4d','#2b5fb3','#a86b00','#7b3fb3','#b3261e','#0e8a8a','#6b6b6b','#c2185b','#4e7d1e','#5d4037','#00695c','#8e24aa','#ef6c00','#3949ab','#00838f','#c62828','#558b2f','#6d4c41','#283593'];
+const colour = Object.fromEntries(allTopics.map((t, i) => [t.slug, palette[i % palette.length]]));
+const papers = allPapers.filter((p) => p.kind === 'exam').sort((a, b) => b.year - a.year || a.spec.localeCompare(b.spec) || a.paperNo - b.paperNo);
+---
+<Base title="Every Edexcel A-level Economics paper as a timeline, 2016–2025" description="Each paper as a strip: every question coloured by topic and sized by marks, so you can see which topics carry the marks and how often each comes up." context="timeline">
+  <h1>Every paper, question by question</h1>
+  <p>Each strip is one paper; each block is a question, sized by marks and coloured by topic. Tap a block to open it. Section B's data-response question is the run of same-coloured blocks in the middle of each A-level paper; the Section C essay is the large block at the end.</p>
+  <div class="tl-key">{allTopics.map((t) => <span><i style={`background:${colour[t.slug]}`}></i>{t.name.split(':')[0]}</span>)}</div>
+  <div class="timeline">
+    {papers.map((p) => { const qs = p.questions.map((id) => byId.get(id)).filter(Boolean); const total = qs.reduce((n, q) => n + q.marks, 0) || 1; return <div class="tl-row"><span class="lab"><a href={`/past-papers/${p.slug}/`}>{p.series.replace('June ', 'Jun ').replace('November ', 'Nov ')} {p.qual === 'AS' ? 'AS ' : ''}P{p.paperNo}</a></span><div class="tl-strip">{qs.map((q) => <a href={`/past-papers/${p.slug}/#${q.id}`} style={`width:${(100 * q.marks / total).toFixed(2)}%;background:${colour[q.topics[0]] || '#bbb'};opacity:${q.notCurrentSpec ? 0.35 : 1}`} title={`Q${q.question}: ${q.topics.map((t) => topicByslug.get(t)?.name).join(', ') || 'old spec'}, ${q.marks} marks`}></a>)}</div></div>; })}
+  </div>
+  
+</Base>

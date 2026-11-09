@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+import { allQuestions, allPapers } from '../lib/data';
+---
+<Base title="About this site" context="about" description="Who runs economicsaleveltutor.com and where the questions, mark schemes and ratings come from.">
+  <h1>About this site</h1>
+  <p>economicsaleveltutor.com is run by {site.company}, an A-level tutoring business with a small team of specialist tutors. The site exists to give Edexcel economics students the past-paper material they actually use, sorted the way they revise, free and without sign-up; and to introduce students who want more help to a tutor who teaches the Pearson Edexcel specification every week.</p>
+  <h2>Where the material comes from</h2>
+  <ul>
+    <li><strong>Questions, mark schemes and examiner comments</strong> are from Pearson's own published papers for every Economics A series since June 2016 (9EC0 A level and 8EC0 AS): {allPapers.length} papers and {allQuestions.length.toLocaleString()} question parts. Each part has been tagged to the specification statement it assesses, its assessment objectives and quantitative skills, and its question type. The June 2025 papers' data and extracts were printed in a separate source booklet; they are shown with the questions here.</li>
+    <li><strong>Difficulty ratings</strong> mark as Hard the parts the examiners' reports say were answered poorly, with the report's words in the notes. Pearson's reports do not give facility figures, so everything else is left unrated.</li>
+    <li><strong>Key-term cards and topic notes</strong> are written by our tutors and are original; nothing derived from Pearson's material is generated automatically.</li>
+    <li><strong>Grade boundaries and exam dates</strong> are Pearson Edexcel's published figures.</li>
+  </ul>
+  <h2>Who writes it</h2>
+  <p>The tutoring is by Lianne, a former Edexcel examiner with over twenty years of A-level Economics teaching; see the <a href="/tutors/">tutor page</a>. The site is built and maintained by the same small team that runs <a href="https://www.alevelbiologytutor.com" rel="noopener">alevelbiologytutor.com</a>, <a href="https://www.mathsaleveltutor.com" rel="noopener">mathsaleveltutor.com</a> and <a href="https://www.alevelpsychologytutor.com" rel="noopener">alevelpsychologytutor.com</a>.</p>
+  <h2>Mistakes</h2>
+  <p>If you find one, tell us on the <a href="/report/">report a mistake</a> page; corrections usually go live the same week.</p>
+</Base>

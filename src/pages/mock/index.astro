@@ -1,0 +1,86 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+---
+<Base title="Edexcel A-level Economics mini-mock builder: timed papers from real questions" description="Build a timed mini-mock from real Pearson Edexcel Economics A past-paper questions in the shape of Paper 1, 2 or 3 (or the AS papers): Section A short questions, a whole Section B data-response question, a Section C essay. Play it on screen or print it with the mark schemes." context="mock" leadLine="Want a mock marked properly and gone through? Message us.">
+  <h1>Mini-mock builder</h1>
+  <p>Assembles a paper from real Pearson Edexcel questions in the shape of the exam. A-level Paper 1 and Paper 2 are five short questions (Section A, 25 marks), one data-response question in five parts (Section B, 50 marks) and a 25-mark essay (Section C). Paper 3 is two 50-mark questions, each a data response plus an essay. The AS papers are five 4-mark questions, then one data-response question ending in a 20-mark essay. Data-response questions are kept whole, so the extracts match the parts. Timed at 1.2 minutes a mark, like the real papers.</p>
+  <div class="panel" id="setup">
+    <h3>Paper</h3>
+    <div class="chips" data-group="paper"><button class="chip" type="button" data-v="Paper 1" aria-pressed="true">Paper 1 (markets and business behaviour)</button><button class="chip" type="button" data-v="Paper 2">Paper 2 (national and global economy)</button><button class="chip" type="button" data-v="Paper 3">Paper 3 (synoptic)</button></div>
+    <h3>Level</h3>
+    <div class="chips" data-group="level"><button class="chip" type="button" data-v="A level" aria-pressed="true">A level</button><button class="chip" type="button" data-v="AS">AS</button></div>
+    <h3>Length</h3>
+    <div class="chips" data-group="part"><button class="chip" type="button" data-v="A" aria-pressed="true">Section A only</button><button class="chip" type="button" data-v="B">Section B data response</button><button class="chip" type="button" data-v="C">Section C essay</button><button class="chip" type="button" data-v="full">Full paper</button></div>
+    <p class="muted" id="shape"></p>
+    <div><button class="btn btn-accent" type="button" id="build">Build my mock</button></div>
+  </div>
+  <div id="paper" hidden>
+    <div class="playbar"><span id="title"></span><span class="timer" id="timer"></span><span><button class="btn" type="button" id="starttimer"><Icon name="timer" />Start timer</button> <button class="btn" type="button" id="print"><Icon name="printer" />Print</button> <button class="btn" type="button" id="share"><Icon name="link" />Copy link</button></span></div>
+    <div id="cards"></div>
+    <div class="btn-row"><button class="btn btn-accent" type="button" id="rebuild">Build another</button></div>
+  </div>
+  <script>
+    import { loadBank, card, shuffle, fmtTime } from '../../scripts/player.js';
+    const $ = (s) => document.querySelector(s);
+    const sel = { paper: 'Paper 1', level: 'A level', part: 'A' };
+    let bank = null, timer = null, secs = 0;
+    function shape() {
+      const as = sel.level === 'AS';
+      if (as && sel.paper === 'Paper 3') { $('#shape').textContent = 'There is no AS Paper 3; the AS papers are Paper 1 (markets) and Paper 2 (the UK economy).'; return; }
+      const t = sel.paper === 'Paper 3' ? { A: 'Paper 3 has no Section A; you will get the short parts of one data-response question (25 marks).', B: 'One whole Paper 3 question: data response in three parts plus a 25-mark essay (50 marks, 1 hour).', C: 'One 25-mark Paper 3 essay (30 minutes).', full: 'Two whole Paper 3 questions (100 marks, 2 hours).' }
+        : as ? { A: 'Five 4-mark questions from Section A (20 marks, 24 minutes).', B: 'One whole Section B data-response question, parts (a) to (e) (about 40 marks, 48 minutes).', C: 'One 20-mark Section B essay (24 minutes).', full: 'Section A plus a whole data-response question with its 20-mark essay (80 marks, 1 hour 30).' }
+        : { A: 'Five Section A questions, each a multiple-choice item and a 4-mark explain (25 marks, 30 minutes).', B: 'One whole Section B data-response question in five parts (50 marks, 1 hour).', C: 'One 25-mark Section C essay (30 minutes).', full: 'Sections A, B and C (100 marks, 2 hours).' };
+      $('#shape').textContent = t[sel.part];
+    }
+    document.querySelectorAll('[data-group]').forEach((g) => g.querySelectorAll('.chip').forEach((b) => b.addEventListener('click', () => { g.querySelectorAll('.chip').forEach((x) => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); sel[g.dataset.group] = b.dataset.v; shape(); })));
+    shape();
+    loadBank().then((b) => { bank = b; });
+    const groupsOf = (qs) => { const m = new Map(); for (const q of qs) { if (!m.has(q.g)) m.set(q.g, []); m.get(q.g).push(q); } return [...m.values()]; };
+    const qn = (g) => Number(g[0].g.split('#')[1]);
+    function pickOneEssay(parts) { const essays = parts.filter((q) => q.f === 'Essay'); if (essays.length <= 1) return parts; const keep = shuffle(essays.slice())[0]; return parts.filter((q) => q.f !== 'Essay' || q === keep); }
+    $('#build').addEventListener('click', () => {
+      if (!bank) return;
+      const as = sel.level === 'AS';
+      if (as && sel.paper === 'Paper 3') return;
+      const pool = bank.q.filter((q) => !q.old && q.c && q.l === sel.level && q.p === sel.paper);
+      const groups = shuffle(groupsOf(pool).filter((g) => g.every((q) => q.c)));
+      const sectionA = groups.filter((g) => qn(g) <= 5);
+      const dataQ = sel.paper === 'Paper 3' ? groups.filter((g) => qn(g) <= 2) : groups.filter((g) => qn(g) === 6);
+      const essaysC = sel.paper === 'Paper 3' ? [] : pool.filter((q) => q.f === 'Essay' && (as ? qn([q]) === 6 : qn([q]) >= 7));
+      let picked = [];
+      const add = (parts) => { picked = picked.concat(parts.sort((a, b) => a.q.localeCompare(b.q, undefined, { numeric: true }))); };
+      if (sel.part === 'A') {
+        if (sel.paper === 'Paper 3') { const g = dataQ[0] || []; add(g.filter((q) => q.f !== 'Essay')); }
+        else sectionA.slice(0, 5).forEach(add);
+      } else if (sel.part === 'B') {
+        const g = dataQ[0] || []; add(as || sel.paper === 'Paper 3' ? pickOneEssay(g) : g.filter((q) => q.f !== 'Essay'));
+        if (as) picked = picked.filter((q) => q.f !== 'Essay');
+      } else if (sel.part === 'C') {
+        const e = sel.paper === 'Paper 3' ? shuffle(pool.filter((q) => q.f === 'Essay'))[0] : shuffle(essaysC)[0];
+        if (e) picked.push(e);
+      } else {
+        if (sel.paper === 'Paper 3') { for (const g of dataQ.slice(0, 2)) add(pickOneEssay(g)); }
+        else {
+          sectionA.slice(0, 5).forEach(add);
+          const g = dataQ[0] || []; add(as ? pickOneEssay(g) : g.filter((q) => q.f !== 'Essay'));
+          if (!as) { const e = shuffle(essaysC)[0]; if (e) picked.push(e); }
+        }
+      }
+      if (!picked.length) { $('#shape').textContent = 'Nothing matched; try another combination.'; return; }
+      const total = picked.reduce((a, q) => a + q.m, 0);
+      $('#setup').hidden = true; $('#paper').hidden = false;
+      $('#title').textContent = `${sel.level} ${sel.paper}: ${picked.length} parts, ${total} marks`;
+      secs = Math.round(total * 72); $('#timer').textContent = fmtTime(secs); if (timer) clearInterval(timer);
+      renderPicked(picked);
+      location.hash = 'set=' + picked.map((q) => q.id).join(',');
+      window.scrollTo({ top: 0 });
+    });
+    function renderPicked(picked) { const holder = $('#cards'); holder.innerHTML = ''; let lastG = null; picked.forEach((q, n) => { const c = card(q); c.querySelector('.meta strong').textContent = `Part ${n + 1} (from ${q.s} ${q.l === 'AS' ? 'AS ' : ''}${q.p} Q${q.q})`; if (q.g === lastG) { const st = c.querySelector('details.stem'); if (st) st.remove(); } lastG = q.g; holder.appendChild(c); }); }
+    $('#share').addEventListener('click', async () => { const url = location.href.split('#')[0] + location.hash; try { await navigator.clipboard.writeText(url); window.maltToast && window.maltToast('Link copied'); } catch { prompt('Copy this link', url); } });
+    loadBank().then(() => { const m = location.hash.match(/set=([^&]+)/); if (!m || !bank) return; const ids = m[1].split(','); const picked = ids.map((id) => bank.q.find((q) => q.id === id)).filter(Boolean); if (!picked.length) return; const total = picked.reduce((a, q) => a + q.m, 0); $('#setup').hidden = true; $('#paper').hidden = false; $('#title').textContent = `Shared mock: ${picked.length} parts, ${total} marks`; secs = Math.round(total * 72); $("#timer").textContent = fmtTime(secs); renderPicked(picked); });
+    $('#starttimer').addEventListener('click', () => { if (timer) clearInterval(timer); timer = setInterval(() => { secs--; $('#timer').textContent = fmtTime(Math.max(secs, 0)); if (secs <= 0) { clearInterval(timer); $('#timer').textContent = "Time's up"; } }, 1000); });
+    $('#print').addEventListener('click', () => { document.querySelectorAll('#cards img[data-src]').forEach((img) => { img.src = img.dataset.src; img.removeAttribute('data-src'); }); document.querySelectorAll('#cards details.stem').forEach((d) => { d.open = true; }); setTimeout(() => window.print(), 300); });
+    $('#rebuild').addEventListener('click', () => { if (timer) clearInterval(timer); $('#paper').hidden = true; $('#setup').hidden = false; window.scrollTo({ top: 0 }); });
+  </script>
+</Base>

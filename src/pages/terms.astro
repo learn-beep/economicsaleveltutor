@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+<Base title="Terms of use" context="terms" lead={false} description="Terms of use for economicsaleveltutor.com.">
+  <h1>Terms of use</h1>
+  <p class="muted">Last updated 6 November 2026</p>
+  <h2>What this site is</h2>
+  <p>economicsaleveltutor.com is a free revision resource for Pearson Edexcel AS and A-level Economics, run by {site.company}. Using it does not create a tutoring contract; tutoring is arranged separately, in writing, once you have enquired.</p>
+  <h2>Past-paper material</h2>
+  <p>Question papers, mark schemes and examiner reports are © Pearson Edexcel and are shown here free of charge for personal study, as is the long-standing practice of A-level revision sites. They are not ours to license. If you are a rights holder and want material changed or removed, email {site.email} and we will act promptly.</p>
+  <h2>Our own content</h2>
+  <p>Topic notes, worked examples, practice questions, the data tables and the tools on this site are © {site.company} or the tutor named on the page. You may use them for your own study and print them for personal or classroom use. Please do not republish them elsewhere without asking.</p>
+  <h2>Accuracy</h2>
+  <p>We check everything, but mistakes happen. Mark schemes and boundaries are Pearson Edexcel's and can be revised; exam dates come from Pearson Edexcel's timetable and your school sets the start time. Nothing here is a substitute for your own exam board documents. Spotted an error? Use the <a href="/report/">report a mistake</a> page.</p>
+  <h2>Availability</h2>
+  <p>The site is provided as is. We may change or remove pages at any time and are not liable for loss arising from reliance on the site, to the extent the law allows.</p>
+  <h2>Who we are</h2>
+  <p>{site.company} is a private limited company registered in England and Wales, company number {site.companyNumber}. Registered office: {site.registeredOffice}. Email: {site.email}.</p>
+</Base>

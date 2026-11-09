@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+import QuestionCard from '../../components/QuestionCard.astro';
+import { allQuestions } from '../../lib/data';
+const tagged = allQuestions.filter((q) => (q.skills || []).length && !q.notCurrentSpec);
+const codes = {};
+for (const q of tagged) for (const s of q.skills) { if (!codes[s.code]) codes[s.code] = { text: s.text, qs: [] }; codes[s.code].qs.push(q); }
+const order = Object.keys(codes).sort((a, b) => Number(a.split(' ')[1]) - Number(b.split(' ')[1]));
+const calcs = allQuestions.filter((q) => q.format === 'Calculation' && !q.notCurrentSpec);
+// How each skill is examined, in the site's words. To be checked by a tutor.
+const how = {
+  'QS 1': 'Ratios appear in the data (a current-account deficit as a share of GDP, a debt ratio); the mark is for reading them correctly and using them in the analysis.',
+  'QS 2': 'The most common calculation on the papers. Percentage change = (new − old) ÷ old × 100. A change from 3% to 5% is a rise of 2 percentage points, not 2%; the examiners penalise mixing the two.',
+  'QS 3': 'Averages in the data: median income, mean household spending. Know which is less affected by extreme values.',
+  'QS 4': 'Reading and drawing graphs: bar charts, line graphs of index numbers over time, scatter diagrams. Always quote the units and the year.',
+  'QS 5': 'Index numbers: base year = 100; a rise from 100 to 112 is 12%; from 112 to 120 is 7.1%, not 8%. Real terms = nominal ÷ price index × 100.',
+  'QS 6': 'The firm\'s calculations: total, average and marginal cost and revenue, and profit = TR − TC. Marginal values are the change between successive rows of a table.',
+  'QS 7': 'Converting money values to real terms with a price index: real = nominal × (base-year index ÷ current index).',
+  'QS 8': 'PED, YED, XED and PES: % change in quantity ÷ % change in price (or income, or the other good\'s price). Interpret the sign and the size, and say what it means for revenue or for the firm.',
+  'QS 9': 'Using the extracts and figures: the application marks in almost every Section B and Paper 3 part. A number or a quoted phrase from the extract has to appear in the answer.',
+  'QS 10': 'Level versus rate of change: a falling inflation rate means prices are still rising, just more slowly; a smaller deficit is still a deficit.',
+  'QS 11': 'Composite indicators such as the Human Development Index: what they combine and what they leave out.',
+  'QS 12': 'Seasonally adjusted figures remove regular within-year patterns so that months or quarters can be compared.',
+};
+---
+<Base title="Edexcel A-level Economics quantitative skills: every calculation question by skill, with mark schemes" description="Every Pearson Edexcel Economics A past-paper question that uses one of the twelve quantitative skills in the specification (percentages and percentage points, index numbers, elasticities, costs and revenues, real terms), with mark schemes, plus how each skill is examined." context="quantitative-skills" leadLine="Losing the calculation marks, or not sure how to use the data in Section B? Message us.">
+  <h1>Quantitative skills</h1>
+  <p>At least 20% of the A-level marks test the twelve quantitative skills in the specification. Below is how each one is examined, with every past-paper question tagged to it ({tagged.length} questions, {calcs.length} of them pure calculations). Show the working: a correct method with a slip in the arithmetic still earns most of the marks, and a bare wrong number earns none.</p>
+  <h2>The twelve skills</h2>
+  <div class="table-wrap"><table><thead><tr><th>Skill</th><th>In the specification</th><th>How it is examined</th><th>Questions</th></tr></thead>
+  <tbody>{order.map((c) => <tr><td><a href={`#${c.replace(' ', '')}`}>{c}</a></td><td>{codes[c].text}</td><td>{how[c] || ''}</td><td>{codes[c].qs.length}</td></tr>)}</tbody></table></div>
+  <p class="muted">Explanations written by the site from the specification's Appendix 3 and the mark schemes; to be checked by a tutor.</p>
+  {order.filter((c) => c !== 'QS 9').map((c) => <section id={c.replace(' ', '')}><h2>{c}: {codes[c].text}</h2><p class="muted">{how[c]}</p>{codes[c].qs.sort((a, b) => b.year - a.year).map((q) => <QuestionCard q={q} showTopics={true} />)}</section>)}
+  <section id="QS9"><h2>QS 9: {codes['QS 9']?.text}</h2><p class="muted">{how['QS 9']} There are {codes['QS 9']?.qs.length} of these; they are on the <a href="/questions/type/data-response/">data-response questions</a> page rather than repeated here.</p></section>
+</Base>

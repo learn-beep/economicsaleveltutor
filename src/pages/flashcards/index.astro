@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { decks } from '../../lib/decks';
+---
+<Base title="Edexcel A-level Economics flashcards: key terms and definitions by topic" description="Free flashcards for Edexcel A-level Economics: the key terms and definitions for each topic, with the examiners' notes on how each is asked, spaced repetition saved in your browser, and a define-it drill from real 2-mark questions." context="flashcards" leadLine="Cards learned but the essays still stuck in level 2? That's what a tutor fixes.">
+  <h1>Flashcards</h1>
+  <p>Key terms and definitions for each topic as flip cards, with spaced repetition saved in your browser. Each card carries what the examiners say about how the term is asked and marked. Definitions are the cheapest marks on the paper: 2 marks for a precise statement, 0 for repeating the term. Decks for the remaining topics are being written; the <a href="/practice/define/">define-it drill</a> already covers every real definition question.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Topic</th><th>Terms</th><th>Drill</th></tr></thead>
+    <tbody>{decks.map((d) => <tr><td><a href={`/questions/${d.topic}/`}>{d.name}</a></td><td><a href={`/questions/${d.topic}/terms/`}>{d.terms.length} terms</a></td><td><a href="/practice/define/">Define it</a></td></tr>)}</tbody>
+  </table></div>
+  <h2>How to use them</h2>
+  <ul>
+    <li>Say the answer out loud before you flip. Then be honest with "Knew it" or "Didn't know it": the cards you miss come back every round, the ones you know come back less often.</li>
+    <li>A definition that would score 2 marks in the exam is the target: the term's meaning in one precise sentence, with the measure or the diagram it belongs to where that is part of the definition.</li>
+    <li>"Print all" on any deck gives you paper cards.</li>
+  </ul>
+</Base>

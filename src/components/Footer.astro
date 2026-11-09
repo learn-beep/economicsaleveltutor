@@ -1,0 +1,12 @@
+---
+import site from '../data/site.json';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div>{site.spec}</div>
+    <div>Past-paper questions, mark schemes and examiner reports are © Pearson Edexcel and are shown free for study. <a href="/about/">About this site</a></div>
+    <div><a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a> · <a href="/report/">Report a mistake</a></div>
+    <div>© {year} {site.company} · Company no. {site.companyNumber}, registered in England and Wales · <a href={`mailto:${site.email}`}>{site.email}</a></div>
+  </div>
+</footer>

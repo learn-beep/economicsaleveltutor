@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import site from '../data/site.json';
+---
+<Base title="Privacy notice" context="privacy" lead={false} description="How economicsaleveltutor.com uses the information you send us when you enquire about tutoring.">
+  <h1>Privacy notice</h1>
+  <p class="muted">Last updated 6 November 2026</p>
+  <p>This site is run by {site.company}. It is a free revision resource; you can use every page without giving us any information. This notice explains what happens when you choose to contact us.</p>
+
+  <h2>What we collect, and why</h2>
+  <ul>
+    <li><strong>Tutor enquiries.</strong> If you message us on WhatsApp or send the enquiry form, we receive what you type: typically a name, a year group, a target grade, availability, and your contact details. We use it only to match you with a tutor and reply to you. The lawful basis is that you have asked us to.</li>
+    <li><strong>Mistake reports.</strong> If you use the "report a mistake" form we receive the page address and what you tell us. If you leave an email address we may reply to say thank you.</li>
+    <li><strong>Nothing else.</strong> We do not run analytics on this site and we do not set tracking cookies. Progress features such as spec-checklist ticks and practice scores are stored in your own browser only and never sent to us; a "clear my data" control on those pages removes them.</li>
+  </ul>
+
+  <h2>Under 18?</h2>
+  <p>Most of our students are 16 to 18. If you are under 18, please ask a parent or carer to contact us, or include their details in your message, so that arrangements for tutoring are made with them.</p>
+
+  <h2>Who sees it, and how long we keep it</h2>
+  <ul>
+    <li>Enquiries are read by the tutoring business and shared with the tutor we match you with, and with nobody else.</li>
+    <li>Form submissions are delivered through Netlify (our hosting provider) to {site.email}. WhatsApp messages are handled by WhatsApp (Meta) under its own terms.</li>
+    <li>We keep enquiry details for as long as needed to arrange tutoring, and delete them within 12 months of the last contact unless you become a student, in which case the tutoring business's own records apply.</li>
+  </ul>
+
+  <h2>Third-party services on the pages</h2>
+  <p>Pages load a web font from Google Fonts, which means that service sees your browser's request (including its IP address) when a page loads. It is not used by us to identify or track you.</p>
+
+  <h2>Your rights</h2>
+  <p>You can ask us what we hold about you, ask us to correct or delete it, or object to our using it, by emailing {site.email}. If you are unhappy with how we have handled your information you can complain to the Information Commissioner's Office (ico.org.uk).</p>
+
+  <h2>Contact</h2>
+  <p>{site.company} (company number {site.companyNumber}), by email at {site.email}. The registered office address is on the <a href="/terms/">terms page</a>.</p>
+</Base>

@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import { allTopics, allQuestions, allPapers } from '../lib/data';
+import Icon from '../components/Icon.astro';
+const order = ['supply-and-demand','price-elasticity-of-demand','externalities','government-intervention-in-markets','indirect-taxes-and-subsidies','aggregate-demand','national-income-and-the-multiplier','fiscal-and-monetary-policy','supply-side-policies','inflation','revenues-costs-and-profits','labour-market','oligopoly','globalisation-and-trade','trading-blocs-and-protectionism','emerging-and-developing-economies'];
+const top = order.map((s) => allTopics.find((t) => t.slug === s)).filter(Boolean);
+const topics = allTopics.map((t) => ({ slug: t.slug, name: t.name, parts: t.parts }));
+const current = allQuestions.filter((q) => !q.notCurrentSpec).length;
+const latest = allPapers.filter((p) => p.kind === 'exam').map((p) => p.series).sort((a, b) => Number(b.split(' ')[1]) - Number(a.split(' ')[1]))[0];
+---
+<Base title="Edexcel A-level Economics: past-paper questions by topic, mark schemes and tutors" context="home" leadLine="Not sure where to start? Tell us the year group and target grade and we will arrange a trial session.">
+  <h1>Edexcel A-level Economics, one topic at a time</h1>
+  <p>{current.toLocaleString()} question parts from {allPapers.length} Pearson Edexcel Economics A papers from June 2016 to {latest}, sorted by topic, with the data, the mark scheme and the examiner's comment one tap away. Free, no sign-up.</p>
+  <p class="muted">Pearson Edexcel A-level 9EC0 and AS 8EC0. Themes 1 and 2 are the AS content; Themes 3 and 4 are A-level only. The June 2026 papers will be added when Pearson publishes them.</p>
+
+  <div class="progress-box" id="progress" hidden>
+    <strong>Your progress</strong>
+    <dl><div><dt>Checklist ticks</dt><dd id="pr-ticks">0</dd></div><div><dt>Questions marked</dt><dd id="pr-q">0</dd></div><div><dt>Weakest topic</dt><dd id="pr-weak">—</dd></div></dl>
+    <a href="/planner/">Build a plan from these</a> · <a href="/specification/">Checklist</a>
+  </div>
+
+  <nav class="tool-strip" aria-label="Key tools">
+    <a href="/practice/"><Icon name="target" />Practice</a>
+    <a href="/past-papers/"><Icon name="file" />Past papers</a>
+    <a href="/essays/"><Icon name="pen" />Essays</a>
+    <a href="/diagrams/"><Icon name="chart" />Diagrams</a>
+    <a href="/quantitative-skills/"><Icon name="calculator" />Calculations</a>
+  </nav>
+
+  <label for="topic-search" class="muted">Find a topic</label>
+  <input id="topic-search" class="search" type="search" placeholder="e.g. elasticity, multiplier, oligopoly" autocomplete="off" />
+
+  <h2 class="strand-head">Most-examined topics</h2>
+  <ul class="topic-list" id="topic-list">
+    {top.map((t) => <li><a href={`/questions/${t.slug}/`}><span>{t.name}</span><span class="strand"><span class={`badge badge-${t.paper.replace('Theme ', '')}`}>{t.paper.replace('Theme ', 'T')}</span> {t.parts} parts</span></a></li>)}
+  </ul>
+  <p><a href="/questions/">All {allTopics.length} topics by theme</a></p>
+
+  <h2>Everything on the site</h2>
+  <div class="tiles">
+    <a class="tile-card" href="/past-papers/"><Icon name="file" /><strong>Past papers</strong><span>Every 9EC0 and 8EC0 paper since 2016 with a question-by-question table, including the series Pearson no longer hosts</span></a>
+    <a class="tile-card" href="/practice/"><Icon name="target" /><strong>Practice</strong><span>Real questions one at a time; instant marking on multiple choice, self-marking on the rest</span></a>
+    <a class="tile-card" href="/essays/"><Icon name="pen" /><strong>Essays</strong><span>Every 20- and 25-mark essay title ever set, by topic, and a timed essay tool</span></a>
+    <a class="tile-card" href="/diagrams/"><Icon name="chart" /><strong>Diagrams</strong><span>Every "draw a diagram" question, with the mark scheme's diagram beside it</span></a>
+    <a class="tile-card" href="/quantitative-skills/"><Icon name="calculator" /><strong>Quantitative skills</strong><span>Every calculation question, sorted by the twelve skills in the specification</span></a>
+    <a class="tile-card" href="/flashcards/"><Icon name="layers" /><strong>Flashcards</strong><span>Key terms and definitions with spaced repetition, and a define-it drill</span></a>
+    <a class="tile-card" href="/mock/"><Icon name="timer" /><strong>Mini-mock builder</strong><span>A paper-shaped timed mock from real questions, Paper 1, 2 or 3</span></a>
+    <a class="tile-card" href="/specification/"><Icon name="checklist" /><strong>Spec checklist</strong><span>All 87 statements of the specification, tickable, linked to their questions</span></a>
+    <a class="tile-card" href="/analysis/"><Icon name="chart" /><strong>What comes up</strong><span>Marks by theme since 2016, the latest papers, every paper as a timeline</span></a>
+    <a class="tile-card" href="/grade-boundaries/"><Icon name="calendar" /><strong>Boundaries and dates</strong><span>Grade calculator and the 2027 exam dates with a countdown</span></a>
+    <a class="tile-card" href="/planner/"><Icon name="lightbulb" /><strong>Revision planner</strong><span>A week-by-week plan to Paper 1 from your weak topics</span></a>
+    <a class="tile-card" href="/tutors/"><Icon name="users" /><strong>Your tutor</strong><span>Lianne: former Edexcel examiner, twenty years teaching Economics, online one-to-one</span></a>
+  </div>
+
+  <script define:vars={{ topics }}>
+    try {
+      const ticks = JSON.parse(localStorage.getItem('malt-spec') || '{}'), scores = JSON.parse(localStorage.getItem('malt-scores') || '{}');
+      const nTicks = Object.values(ticks).filter(Boolean).length, rows = Object.entries(scores);
+      const nQ = rows.reduce((n, [, r]) => n + (r.n || 0), 0);
+      if (nTicks || nQ) {
+        document.getElementById('progress').hidden = false;
+        document.getElementById('pr-ticks').textContent = nTicks;
+        document.getElementById('pr-q').textContent = nQ;
+        const weak = rows.filter(([, r]) => r.total).sort((a, b) => a[1].earned / a[1].total - b[1].earned / b[1].total)[0];
+        if (weak) { const t = topics.find((x) => x.slug === weak[0]); document.getElementById('pr-weak').innerHTML = t ? `<a href="/questions/${t.slug}/">${t.name.split(':')[0]}</a> ${Math.round(100 * weak[1].earned / weak[1].total)}%` : '—'; }
+      }
+    } catch {}
+    const input = document.getElementById('topic-search');
+    const list = document.getElementById('topic-list');
+    const initial = list.innerHTML;
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) { list.innerHTML = initial; return; }
+      const items = topics.filter((t) => t.name.toLowerCase().includes(q) || t.slug.includes(q.replace(/\s+/g, '-')));
+      list.innerHTML = items.length
+        ? items.map((t) => `<li><a href="/questions/${t.slug}/"><span>${t.name}</span><span class="strand">${t.parts} parts</span></a></li>`).join('')
+        : '<li class="muted">No topic matches that. <a href="/questions/">Browse all topics</a>.</li>';
+    });
+  </script>
+</Base>

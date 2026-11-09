@@ -1,0 +1,71 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Hint from '../../components/Hint.astro';
+import { allTopics } from '../../lib/data';
+const groups = [['Theme 1', 'Theme 1'], ['Theme 2', 'Theme 2'], ['Theme 3', 'Theme 3'], ['Theme 4', 'Theme 4']];
+---
+<Base title="Edexcel A-level Economics practice: multiple-choice drill, short answers and essays with self-marking" description="Pick topics and question types, work through real Pearson Edexcel past-paper questions one at a time, with instant marking for multiple choice and self-marking against the mark scheme for the rest. Scores by topic are saved in your browser." context="practice" leadLine="Keep scoring low on one topic? That's exactly what a tutor fixes fastest.">
+  <h1>Practice</h1>
+  <p>Real Pearson Edexcel questions, one at a time. Multiple-choice items are marked instantly; for everything else, answer on paper, open the mark scheme and tick the marks or level you earned. Scores by topic are saved in this browser only and show on each topic page.</p>
+  <Hint id="scores" text="Scores are saved in this browser only, no account needed. Clear them any time from the round summary." />
+  <div class="panel" id="setup">
+    <h3>Topics</h3>
+    <div class="chips"><button class="chip" type="button" data-all="Theme 1">All Theme 1</button><button class="chip" type="button" data-all="Theme 2">All Theme 2</button><button class="chip" type="button" data-all="Theme 3">All Theme 3</button><button class="chip" type="button" data-all="Theme 4">All Theme 4</button><button class="chip" type="button" data-all="">Clear</button></div>
+    {groups.map(([h, key]) => <div class="chips" data-strand={key}><span class="muted" style="align-self:center">{h}:</span>{allTopics.filter((t) => t.paper === key).map((t) => <button class="chip" type="button" data-topic={t.slug} aria-pressed="false">{t.name.split(':').pop().trim()} <span class="muted">({t.parts})</span></button>)}</div>)}
+    <h3>Question type</h3>
+    <div class="chips" data-group="fmt"><button class="chip" type="button" data-v="" aria-pressed="true">Any</button><button class="chip" type="button" data-v="Multiple choice">Multiple choice (instant marking)</button><button class="chip" type="button" data-v="Definition">Definitions</button><button class="chip" type="button" data-v="Calculation">Calculations</button><button class="chip" type="button" data-v="Diagram">Diagrams</button><button class="chip" type="button" data-v="short">Short answers (2–6 marks)</button><button class="chip" type="button" data-v="Extended response">8–15 mark responses</button><button class="chip" type="button" data-v="Essay">Essays (20–25 marks)</button></div>
+    <h3>Level</h3>
+    <div class="chips" data-group="level"><button class="chip" type="button" data-v="" aria-pressed="true">Both</button><button class="chip" type="button" data-v="AS">AS only</button><button class="chip" type="button" data-v="A level">A level only</button></div>
+    <h3>How many</h3>
+    <div class="chips" data-group="n"><button class="chip" type="button" data-v="5" aria-pressed="true">5</button><button class="chip" type="button" data-v="10">10</button><button class="chip" type="button" data-v="20">20</button></div>
+    <div><button class="btn btn-accent" type="button" id="start">Start</button> <span class="muted" id="count"></span></div>
+  </div>
+  <div id="play" hidden>
+    <div class="playbar"><span id="progress"></span><span class="timer" id="score"></span><button class="btn" type="button" id="next">Next</button></div>
+    <div id="card"></div>
+  </div>
+  <div id="done" hidden>
+    <h2>Your round</h2>
+    <div class="summary" id="summary"></div>
+    <div class="btn-row"><button class="btn btn-accent" type="button" id="again">Another round</button><a class="btn" href="/specification/">See the checklist</a><button class="btn" type="button" id="clear">Clear all my scores</button></div>
+  </div>
+  <script>
+    import { loadBank, card, saveScore, clearScores, shuffle } from '../../scripts/player.js';
+    const $ = (s) => document.querySelector(s);
+    let bank = null, queue = [], i = 0, earnedThis = null, roundScores = {}, roundEarned = 0, roundTotal = 0;
+    const sel = { topics: new Set(), fmt: '', level: '', n: 5 };
+    document.querySelectorAll('[data-topic]').forEach((b) => b.addEventListener('click', () => { const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on)); on ? sel.topics.add(b.dataset.topic) : sel.topics.delete(b.dataset.topic); count(); }));
+    document.querySelectorAll('[data-all]').forEach((b) => b.addEventListener('click', () => { document.querySelectorAll('[data-topic]').forEach((t) => { const on = b.dataset.all && t.closest('[data-strand]').dataset.strand === b.dataset.all; t.setAttribute('aria-pressed', String(on)); on ? sel.topics.add(t.dataset.topic) : sel.topics.delete(t.dataset.topic); }); count(); }));
+    document.querySelectorAll('[data-group]').forEach((g) => g.querySelectorAll('.chip').forEach((b) => b.addEventListener('click', () => { g.querySelectorAll('.chip').forEach((x) => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); const k = g.dataset.group; sel[k] = k === 'n' ? Number(b.dataset.v) : b.dataset.v; count(); })));
+    function fmtOk(q) { if (!sel.fmt) return true; if (sel.fmt === 'short') return q.m <= 6 && q.f !== 'Multiple choice'; if (sel.fmt === 'Multiple choice') return q.f === 'Multiple choice' && q.ans; return q.f === sel.fmt; }
+    function pool() { if (!bank) return []; return bank.q.filter((q) => !q.old && q.c && (!sel.topics.size || q.t.some((t) => sel.topics.has(t))) && (!sel.level || q.l === sel.level) && fmtOk(q)); }
+    function count() { const n = pool().length; $('#count').textContent = bank ? `${n} question${n === 1 ? '' : 's'} match` : 'Loading…'; }
+    loadBank().then((b) => { bank = b; count(); });
+    $('#start').addEventListener('click', () => {
+      const p = shuffle(pool()).slice(0, sel.n); if (!p.length) { $('#count').textContent = 'Nothing matches; pick more topics.'; return; }
+      queue = p; i = 0; roundScores = {}; roundEarned = 0; roundTotal = 0;
+      $('#setup').hidden = true; $('#done').hidden = true; $('#play').hidden = false; show();
+    });
+    function show() {
+      const q = queue[i]; earnedThis = null;
+      $('#progress').textContent = `Question ${i + 1} of ${queue.length}`; $('#score').textContent = roundTotal ? `${roundEarned}/${roundTotal}` : '';
+      $('#next').textContent = i === queue.length - 1 ? 'Finish' : 'Next';
+      const holder = $('#card'); holder.innerHTML = ''; holder.appendChild(card(q, { mark: true, mcq: true, onMark: (m) => { earnedThis = m; } }));
+      window.scrollTo({ top: holder.offsetTop - 120, behavior: 'smooth' });
+    }
+    $('#next').addEventListener('click', () => {
+      const q = queue[i];
+      if (earnedThis !== null) { saveScore(q.t, earnedThis, q.m, q.id); roundEarned += earnedThis; roundTotal += q.m; for (const t of q.t) { const r = roundScores[t] || { e: 0, m: 0 }; r.e += earnedThis; r.m += q.m; roundScores[t] = r; } }
+      if (i < queue.length - 1) { i++; show(); } else finish();
+    });
+    function finish() {
+      $('#play').hidden = true; $('#done').hidden = false;
+      const names = Object.fromEntries(bank.topics.map((t) => [t.slug, t.name]));
+      const rows = Object.entries(roundScores);
+      $('#summary').innerHTML = rows.length ? `<p><strong>${roundEarned}/${roundTotal}</strong> this round</p>` + rows.map(([t, r]) => `<div><a href="/questions/${t}/">${names[t] || t}</a>: ${r.e}/${r.m}<div class="bar"><i style="width:${r.m ? Math.round(100 * r.e / r.m) : 0}%"></i></div></div>`).join('') : '<p class="muted">You didn\'t mark any questions this round. Tap an answer, or open the mark scheme and tap the marks or level you earned, to keep a score.</p>';
+    }
+    $('#again').addEventListener('click', () => { $('#done').hidden = true; $('#setup').hidden = false; window.scrollTo({ top: 0 }); });
+    $('#clear').addEventListener('click', () => { clearScores(); $('#summary').innerHTML = '<p class="muted">Scores cleared.</p>'; });
+  </script>
+</Base>

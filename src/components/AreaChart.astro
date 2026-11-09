@@ -1,0 +1,16 @@
+---
+// Small-multiples bar chart: one row per area, one bar per series. Inline SVG built as a string, no scripts.
+const { areas, series, value, title } = Astro.props;
+const W = 640, rowH = 22, left = 230, gap = 4;
+const max = Math.max(1, ...areas.flatMap(([k]) => series.map((s) => value(s, k))));
+const bw = (W - left - 10) / series.length;
+const H = 30 + areas.length * rowH + 10;
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+let svg = '';
+series.forEach((s, j) => { svg += `<text x="${left + j * bw + bw / 2}" y="18" text-anchor="middle" font-size="9" fill="currentColor" opacity=".7">${esc(s.replace('June ', 'J').replace('November ', 'N').replace('October ', 'O').replace(' 20', ' '))}</text>`; });
+areas.forEach(([k, label], i) => {
+  svg += `<text x="${left - 8}" y="${30 + i * rowH + rowH / 2 + 4}" text-anchor="end" font-size="10" fill="currentColor">${esc(label.length > 38 ? label.slice(0, 36) + '…' : label)}</text>`;
+  series.forEach((s, j) => { const v = value(s, k); if (!v) return; const h = Math.max(2, (v / max) * (rowH - gap)); svg += `<rect x="${left + j * bw + 1}" y="${30 + i * rowH + (rowH - gap - h)}" width="${bw - 2}" height="${h}" fill="var(--accent)" opacity=".85"><title>${esc(label)}, ${esc(s)}: ${v} marks</title></rect>`; });
+});
+---
+<svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={title} class="areachart" set:html={svg} />

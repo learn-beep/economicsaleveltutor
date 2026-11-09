@@ -1,0 +1,75 @@
+{
+  "source": "Pearson published overall grade boundaries. The A-level total is Pearson's weighted 335 (Papers 1 and 2 count 35% each, Paper 3 30%), not the 300 raw marks on the papers; the AS total is 160 (two 80-mark papers). June 2026 papers are not yet public.",
+  "alevel": [
+    {
+      "series": "June 2026",
+      "max": 335,
+      "A*": 288,
+      "A": 265,
+      "B": 230,
+      "C": 195,
+      "D": 160,
+      "E": 126
+    },
+    {
+      "series": "June 2025",
+      "max": 335,
+      "A*": 287,
+      "A": 262,
+      "B": 227,
+      "C": 192,
+      "D": 158,
+      "E": 124
+    },
+    {
+      "series": "June 2024",
+      "max": 335,
+      "A*": 278,
+      "A": 251,
+      "B": 216,
+      "C": 181,
+      "D": 146,
+      "E": 112
+    },
+    {
+      "series": "June 2023",
+      "max": 335,
+      "A*": 273,
+      "A": 245,
+      "B": 211,
+      "C": 177,
+      "D": 143,
+      "E": 110
+    },
+    {
+      "series": "June 2022",
+      "max": 335,
+      "A*": 262,
+      "A": 235,
+      "B": 199,
+      "C": 163,
+      "D": 127,
+      "E": 92
+    }
+  ],
+  "as": [
+    {
+      "series": "June 2026",
+      "max": 160,
+      "A": 108,
+      "B": 97,
+      "C": 87,
+      "D": 77,
+      "E": 67
+    },
+    {
+      "series": "June 2025",
+      "max": 160,
+      "A": 115,
+      "B": 104,
+      "C": 93,
+      "D": 82,
+      "E": 72
+    }
+  ]
+}

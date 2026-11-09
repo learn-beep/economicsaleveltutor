@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base title="Edexcel A-level Economics question of the day" description="One real Edexcel A-level Economics past-paper question every day, with the mark scheme and the examiner's comment. Same question for everyone, changes at midnight." context="today" leadLine="Stuck on today's? A tutor can show you the approach in ten minutes.">
+  <h1>Question of the day</h1>
+  <p class="muted" id="date"></p>
+  <div id="card"><p class="muted">Loading…</p></div>
+  <p><a href="/practice/">Want more? Open the practice player.</a></p>
+  <script>
+    import { loadBank, card } from '../../scripts/player.js';
+    const d = new Date(); const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    document.getElementById('date').textContent = d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+    let h = 0; for (const ch of key) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+    loadBank().then((b) => { const pool = b.q.filter((q) => q.c && !q.old && q.l === 'A level' && q.m >= 4 && q.m <= 15); const q = pool[h % pool.length]; const holder = document.getElementById('card'); holder.innerHTML = ''; holder.appendChild(card(q, { mcq: true })); });
+  </script>
+</Base>

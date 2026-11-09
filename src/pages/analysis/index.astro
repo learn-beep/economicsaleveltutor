@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import Heatmap from '../../components/Heatmap.astro';
+import weighting from '../../data/weighting.json';
+import { allPapers } from '../../lib/data';
+const areas = Object.entries(weighting.areas);
+const series = [...new Set(allPapers.filter((p) => p.spec === '9EC0' && p.kind === 'exam').map((p) => p.series))].reverse();
+const marks = (s, area) => allPapers.filter((p) => p.spec === '9EC0' && p.series === s).reduce((n, p) => n + (weighting.byPaper[p.id]?.[area] || 0), 0);
+---
+<Base title="What comes up in Edexcel A-level Economics: marks by topic, 2016–2025" context="analysis">
+  <h1>What comes up, paper by paper</h1>
+  <p>Marks assessed under each section of the specification across the three A-level papers in each series, counted from the mark schemes. Darker cells carry more marks; the right-hand column is the total since the first series. Essays are counted once (one of the either/or pair), so each series totals 300.</p>
+  <Heatmap areas={areas} series={series} value={marks} title="Marks by topic by series" short={(s) => s.replace('June ', 'Jun ').replace('November ', 'Nov ').replace('October ', 'Oct ').replace(' 20', ' ')} />
+  <p class="muted">June 2025 is the most recent series Pearson has published. Pearson keeps each summer's papers secure for about a year (the June 2026 papers are expected after the summer 2027 exams), so the data here runs to the latest public series. October 2020 and November 2021 were the series sat in place of the cancelled summer exams.</p>
+  <p><a href="/what-came-up/">What came up in the latest papers</a> · <a href="/timeline/">Every paper as a timeline</a></p>
+</Base>

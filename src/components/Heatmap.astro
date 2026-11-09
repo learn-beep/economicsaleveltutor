@@ -1,0 +1,14 @@
+---
+// Heat-map table: rows = areas, columns = series, cell shade = marks. Replaces the small bar chart.
+const { areas, series, value, title, short = (s) => s } = Astro.props;
+const vals = areas.flatMap(([k]) => series.map((s) => value(s, k)));
+const max = Math.max(1, ...vals);
+const totals = areas.map(([k]) => series.reduce((n, s) => n + value(s, k), 0));
+const shade = (v) => v ? `background: rgba(232, 100, 12, ${(0.12 + 0.78 * v / max).toFixed(2)}); color: ${v / max > 0.55 ? '#fff' : 'inherit'}` : '';
+---
+<div class="table-wrap heatmap-wrap">
+  <table class="heatmap" aria-label={title}>
+    <thead><tr><th>Topic</th>{series.map((s) => <th>{short(s)}</th>)}<th>Total</th></tr></thead>
+    <tbody>{areas.map(([k, label], i) => <tr><th scope="row">{label}</th>{series.map((s) => { const v = value(s, k); return <td style={shade(v)}>{v || ''}</td>; })}<td class="tot">{totals[i]}</td></tr>)}</tbody>
+  </table>
+</div>

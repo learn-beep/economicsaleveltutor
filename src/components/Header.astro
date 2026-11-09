@@ -1,0 +1,20 @@
+---
+import site from '../data/site.json';
+import Icon from './Icon.astro';
+import Search from './Search.astro';
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/"><span>{site.name}</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/questions/"><Icon name="book" />Questions</a>
+      <a href="/past-papers/"><Icon name="file" />Past papers</a>
+      <a href="/practice/"><Icon name="target" />Practice</a>
+      <a href="/essays/"><Icon name="pen" />Essays</a>
+      <a href="/diagrams/"><Icon name="chart" />Diagrams</a>
+      <a href="/tutors/"><Icon name="users" />Tutor</a>
+    </nav>
+    <button class="search-toggle" type="button" id="search-toggle" aria-expanded="false" aria-controls="search-panel"><Icon name="target" />Search</button>
+  </div>
+  <Search />
+</header>

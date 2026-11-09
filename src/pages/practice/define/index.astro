@@ -1,0 +1,29 @@
+---
+import Base from '../../../layouts/Base.astro';
+---
+<Base title="Define it: Edexcel A-level Economics 2-mark definition questions, rapid round" description="Every 'what is meant by' question from Edexcel Economics papers as a rapid-fire round: say the definition, reveal the mark scheme, mark yourself 0, 1 or 2." context="define" leadLine="Definitions fine but the 4-markers slipping? Message us.">
+  <h1>Define it</h1>
+  <p>Every real "define" and "what is meant by" question from the papers. Say the definition out loud (or write it), open the mark scheme, tap the marks you'd get. These are the easiest marks on the paper and the examiners' most common complaint is a definition that repeats the term or describes an example instead.</p>
+  <div class="panel" id="setup">
+    <div class="chips" data-group="paper"><button class="chip" type="button" data-v="" aria-pressed="true">All papers</button><button class="chip" type="button" data-v="Paper 1">Paper 1 (micro)</button><button class="chip" type="button" data-v="Paper 2">Paper 2 (macro)</button><button class="chip" type="button" data-v="Paper 3">Paper 3</button></div>
+    <div><button class="btn btn-accent" type="button" id="start">Start the round</button> <span class="muted" id="count"></span></div>
+  </div>
+  <div id="play" hidden>
+    <div class="playbar"><span id="progress"></span><span class="timer" id="score"></span><button class="btn" type="button" id="next">Next</button></div>
+    <div id="card"></div>
+  </div>
+  <div id="done" hidden><h2>Round done</h2><p id="summary"></p><div class="btn-row"><button class="btn btn-accent" type="button" id="again">Another round</button><a class="btn" href="/flashcards/">Learn the terms</a></div></div>
+  <script>
+    import { loadBank, card, saveScore, shuffle } from '../../../scripts/player.js';
+    const $ = (s) => document.querySelector(s);
+    let bank = null, queue = [], i = 0, earned = null, tot = 0, got = 0, paper = '';
+    document.querySelectorAll('[data-group="paper"] .chip').forEach((b) => b.addEventListener('click', () => { document.querySelectorAll('[data-group="paper"] .chip').forEach((x) => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); paper = b.dataset.v; count(); }));
+    const pool = () => bank ? bank.q.filter((q) => q.def && !q.old && q.c && (!paper || q.p === paper)) : [];
+    const count = () => { $('#count').textContent = bank ? `${pool().length} definitions` : 'Loading…'; };
+    loadBank().then((b) => { bank = b; count(); });
+    $('#start').addEventListener('click', () => { queue = shuffle(pool()).slice(0, 10); if (!queue.length) return; i = 0; tot = 0; got = 0; $('#setup').hidden = true; $('#done').hidden = true; $('#play').hidden = false; show(); });
+    function show() { const q = queue[i]; earned = null; $('#progress').textContent = `${i + 1} of ${queue.length}`; $('#score').textContent = tot ? `${got}/${tot}` : ''; $('#next').textContent = i === queue.length - 1 ? 'Finish' : 'Next'; const h = $('#card'); h.innerHTML = ''; h.appendChild(card(q, { mark: true, onMark: (m) => { earned = m; } })); }
+    $('#next').addEventListener('click', () => { const q = queue[i]; if (earned !== null) { saveScore(q.t, earned, q.m, q.id); got += earned; tot += q.m; } if (i < queue.length - 1) { i++; show(); } else { $('#play').hidden = true; $('#done').hidden = false; $('#summary').textContent = tot ? `${got} out of ${tot} marks.` : 'Open the mark scheme and tap your marks to keep a score.'; } });
+    $('#again').addEventListener('click', () => { $('#done').hidden = true; $('#setup').hidden = false; });
+  </script>
+</Base>

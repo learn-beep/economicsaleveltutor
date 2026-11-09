@@ -1,0 +1,34 @@
+---
+import Base from '../../layouts/Base.astro';
+import QuestionCard from '../../components/QuestionCard.astro';
+import { allQuestions, allTopics, topicByslug } from '../../lib/data';
+const qs = allQuestions.filter((q) => (q.features || []).includes('draw') && !q.notCurrentSpec).sort((a, b) => b.year - a.year);
+const byTopic = allTopics.map((t) => [t, qs.filter((q) => q.topics.includes(t.slug))]).filter(([, x]) => x.length).sort((a, b) => b[1].length - a[1].length);
+// The diagrams the specification expects students to draw, grouped the way they are examined. Written by the site; to be checked by a tutor.
+const families = [
+  ['Supply and demand', 'supply-and-demand', 'Shifts of demand and supply, the new equilibrium, and the areas for consumer and producer surplus. Label the axes (price, quantity), both curves, both equilibria and the direction of the shift.'],
+  ['Indirect taxes and subsidies', 'indirect-taxes-and-subsidies', 'A specific tax shifts supply vertically upwards by the tax; an ad valorem tax pivots it; a subsidy shifts it downwards. Show the incidence on consumers and producers and the tax revenue or subsidy cost as rectangles.'],
+  ['Externalities and welfare loss', 'externalities', 'MPC, MSC, MPB and MSB; the free-market and social-optimum quantities; the welfare-loss triangle between them. Over-production for a negative externality, under-consumption for a positive one.'],
+  ['Maximum and minimum prices', 'government-intervention-in-markets', 'A maximum price below equilibrium creates excess demand (a shortage); a minimum price above it creates excess supply. Mark the quantities demanded and supplied at the controlled price.'],
+  ['Production possibility frontiers', 'production-possibility-frontiers', 'Points inside, on and outside the frontier; movements along it (opportunity cost) and outward shifts (growth, more or better resources).'],
+  ['Aggregate demand and aggregate supply', 'aggregate-demand', 'AD with SRAS and LRAS. The Keynesian LRAS is L-shaped (horizontal then vertical); the classical LRAS is vertical. Show real output and the price level on the axes, and the output gap where the question asks.'],
+  ['The circular flow and the multiplier', 'national-income-and-the-multiplier', 'Injections and withdrawals on the circular flow; on an AD/AS diagram the multiplier is the second, larger shift of AD after the initial injection.'],
+  ['Costs and revenues of the firm', 'revenues-costs-and-profits', 'AC, MC, AR and MR. MC cuts AC at its minimum; profit is maximised where MC = MR; supernormal profit is the rectangle between AR and AC at that output.'],
+  ['Monopoly and perfect competition', 'monopoly', 'Monopoly: downward-sloping AR with MR below it, output where MC = MR, the allocatively efficient output where AR = MC for comparison. Perfect competition: horizontal AR = MR = price, long-run normal profit at minimum AC.'],
+  ['Oligopoly: the kinked demand curve', 'oligopoly', 'A demand curve kinked at the current price, elastic above and inelastic below, with a discontinuity in MR that explains sticky prices.'],
+  ['The labour market', 'labour-market', 'Demand and supply of labour with the wage rate on the vertical axis; a minimum wage above equilibrium; monopsony with MCL above the labour supply curve and employment below the competitive level.'],
+  ['Tariffs and trade', 'trading-blocs-and-protectionism', 'World supply horizontal at the world price; a tariff raises it, cutting imports: more domestic output, less consumption, tariff revenue, and two welfare-loss triangles.'],
+  ['Exchange rates', 'exchange-rates', 'Demand for and supply of the currency against another; shifts from interest rates, speculation, trade flows and FDI; appreciation and depreciation as a new equilibrium.'],
+  ['The Phillips curve', 'inflation', 'Unemployment on the horizontal axis, inflation on the vertical; the short-run trade-off and the vertical long-run curve at the natural rate.'],
+];
+---
+<Base title="Edexcel A-level Economics diagrams: every 'draw a diagram' question with the mark scheme's diagram" description="Every Pearson Edexcel Economics A past-paper question that asks for a diagram, by topic, with the mark scheme's own diagram behind the button, plus a checklist of the diagrams the specification expects: supply and demand, taxes and subsidies, externalities, AD/AS, cost curves, monopoly, tariffs, the Phillips curve." context="diagrams" leadLine="Diagrams losing marks for a missing label or a curve the wrong way round? That is the quickest thing a tutor fixes.">
+  <h1>Diagrams</h1>
+  <p>{qs.length} past-paper questions that ask you to draw, complete or annotate a diagram, by topic, each with the mark scheme's diagram behind the button. In the levels grids a relevant, accurate diagram is part of what separates Level 3 from Level 2 analysis; in short questions each correctly labelled feature usually earns its own mark.</p>
+  <h2>The diagrams you must be able to draw</h2>
+  <p class="muted">A checklist of the diagram families on the specification, each linked to its topic's questions. Written by the site from the specification and mark schemes; to be checked by a tutor.</p>
+  <div class="table-wrap"><table><thead><tr><th>Diagram</th><th>What the mark scheme looks for</th><th>Questions</th></tr></thead>
+  <tbody>{families.map(([name, slug, note]) => <tr><td><a href={`/questions/${slug}/`}>{name}</a></td><td>{note}</td><td>{qs.filter((q) => q.topics.includes(slug)).length ? <a href={`#${slug}`}>{qs.filter((q) => q.topics.includes(slug)).length} here</a> : <a href={`/questions/${slug}/`}>topic page</a>}</td></tr>)}</tbody></table></div>
+  <h2>Every diagram question, by topic</h2>
+  {byTopic.map(([t, x]) => <section id={t.slug}><h3><a href={`/questions/${t.slug}/`}>{t.name}</a> <span class="muted">({x.length})</span></h3>{x.map((q) => <QuestionCard q={q} />)}</section>)}
+</Base>

@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Report a mistake" context="report" lead={false} description="Tell us about an error on a page and we will fix it.">
+  <h1>Report a mistake</h1>
+  <p>Wrong topic tag, a crop that cuts off part of a question, a mark scheme shown against the wrong part: tell us and we will fix it. Corrections usually go live within the week.</p>
+  <form class="lead-block" style="margin-top:1rem" name="mistake" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="mistake" />
+    <p class="hidden"><label>Leave this empty: <input name="bot-field" /></label></p>
+    <label>Page address <input name="page" type="url" id="page" placeholder="https://www.economicsaleveltutor.com/..." /></label>
+    <label>What's wrong <textarea name="detail" required></textarea></label>
+    <label>Your email (optional, if you'd like a reply) <input name="email" type="email" autocomplete="email" /></label>
+    <button class="btn btn-accent" type="submit">Send</button>
+  </form>
+  <script>
+    const ref = document.referrer;
+    if (ref && ref.includes('mathsaleveltutor')) document.getElementById('page').value = ref;
+  </script>
+</Base>

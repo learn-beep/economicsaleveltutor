@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import QuestionCard from '../../components/QuestionCard.astro';
+import { allQuestions } from '../../lib/data';
+const hard = allQuestions.filter((q) => q.difficulty === 'Hard' && !q.notCurrentSpec).sort((a, b) => (a.facility ?? 1) - (b.facility ?? 1));
+---
+<Base title="Hardest Edexcel A-level Economics questions (from the examiners' own figures)" context="hardest" leadLine="Want to work through the hard ones with a tutor? Message us.">
+  <h1>The hardest Edexcel Economics questions</h1>
+  <p>Pearson Edexcel's examiner reports occasionally give the proportion of marks scored nationally on a question. These are the {hard.length} parts on current content where it was under 35%, with the examiner's comment on where answers fell short.</p>
+  {hard.map((q) => <QuestionCard q={q} showTopics={true} />)}
+</Base>

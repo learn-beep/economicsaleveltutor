@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import exams from '../../data/exams.json';
+import { allTopics } from '../../lib/data';
+const topics = allTopics.map((t) => ({ slug: t.slug, name: t.name, extra: `/questions/${t.slug}/print/`, extraLabel: 'print pack' }));
+const paper1 = exams.alevel[0].date;
+---
+<Base title="Edexcel A-level Economics revision planner: week-by-week plan to Paper 1" description="Build a week-by-week revision plan to Edexcel Economics Paper 1 from the topics you still need to work on, weakest first and revisited, with links to the questions, flashcards and practice for each; printable." context="planner" leadLine="A plan is only as good as the weeks you keep to it. Want someone to check in on it? Message us.">
+  <h1>Revision planner</h1>
+  <p>Pick the topics you need to work on (the ones you haven't ticked on the <a href="/specification/">checklist</a> and the ones with low practice scores are pre-selected if you've used them), and the planner spreads them over the weeks to Paper 1 on <strong id="p1date"></strong>, weakest first and revisited. Print it or save it as a PDF.</p>
+  <div class="panel" id="setup">
+    <h3>Topics to work on</h3>
+    <div class="chips"><button class="chip" type="button" id="all">Select all</button><button class="chip" type="button" id="none">Clear</button></div>
+    <div class="chips" id="topics"></div>
+    <h3>How many revision sessions a week?</h3>
+    <div class="chips" data-group="n"><button class="chip" type="button" data-v="2" aria-pressed="false">2</button><button class="chip" type="button" data-v="3" aria-pressed="true">3</button><button class="chip" type="button" data-v="4">4</button><button class="chip" type="button" data-v="5">5</button></div>
+    <div class="btn-row"><button class="btn btn-accent" type="button" id="build">Build my plan</button></div>
+  </div>
+  <div id="plan" hidden>
+    <div class="playbar"><span id="plantitle"></span><span><button class="btn" type="button" id="print">Print</button> <button class="btn" type="button" id="redo">Change topics</button></span></div>
+    <div id="weeks"></div>
+  </div>
+  <script define:vars={{ topics, paper1 }}>
+    const $ = (s) => document.querySelector(s);
+    const d1 = new Date(paper1 + 'T09:00:00'); $('#p1date').textContent = d1.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    let ticks = {}, scores = {}; try { ticks = JSON.parse(localStorage.getItem('malt-spec') || '{}'); scores = JSON.parse(localStorage.getItem('malt-scores') || '{}'); } catch {}
+    const weak = (t) => { const s = scores[t.slug]; if (s && s.total && s.earned / s.total < 0.6) return true; return !Object.keys(ticks).length ? true : false; };
+    const sel = new Set(topics.filter(weak).map((t) => t.slug)); let perWeek = 3;
+    const box = $('#topics'); box.innerHTML = topics.map((t) => `<button class="chip" type="button" data-topic="${t.slug}" aria-pressed="${sel.has(t.slug)}">${t.name}</button>`).join('');
+    box.querySelectorAll('[data-topic]').forEach((b) => b.addEventListener('click', () => { const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on)); on ? sel.add(b.dataset.topic) : sel.delete(b.dataset.topic); }));
+    $('#all').addEventListener('click', () => { topics.forEach((t) => sel.add(t.slug)); box.querySelectorAll('[data-topic]').forEach((b) => b.setAttribute('aria-pressed', 'true')); });
+    $('#none').addEventListener('click', () => { sel.clear(); box.querySelectorAll('[data-topic]').forEach((b) => b.setAttribute('aria-pressed', 'false')); });
+    document.querySelectorAll('[data-group="n"] .chip').forEach((b) => b.addEventListener('click', () => { document.querySelectorAll('[data-group="n"] .chip').forEach((x) => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); perWeek = Number(b.dataset.v); }));
+    $('#build').addEventListener('click', () => {
+      const chosen = topics.filter((t) => sel.has(t.slug)); if (!chosen.length) return;
+      chosen.sort((a, b) => { const sa = scores[a.slug], sb = scores[b.slug]; const ra = sa && sa.total ? sa.earned / sa.total : 0.5, rb = sb && sb.total ? sb.earned / sb.total : 0.5; return ra - rb; });
+      const now = new Date(); const weeks = Math.max(1, Math.ceil((d1 - now) / (7 * 864e5)) - 1); // leave the last week for papers
+      const slots = weeks * perWeek; const plan = Array.from({ length: weeks }, () => []);
+      let k = 0; for (let s = 0; s < slots; s++) { const t = chosen[k % chosen.length]; plan[Math.floor(s / perWeek)].push({ ...t, pass: Math.floor(k / chosen.length) + 1 }); k++; }
+      $('#setup').hidden = true; $('#plan').hidden = false; $('#plantitle').textContent = `${weeks} week${weeks === 1 ? '' : 's'} to Paper 1, ${perWeek} sessions a week, ${chosen.length} topics`;
+      $('#weeks').innerHTML = plan.map((w, i) => { const start = new Date(now.getTime() + i * 7 * 864e5); return `<h3>Week ${i + 1}: from ${start.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</h3><ul>${w.map((t) => `<li><strong>${t.name}</strong> ${t.pass === 1 ? '— first pass: notes, then the questions' : t.pass === 2 ? '— second pass: practice round, mark it' : '— final pass: timed questions only'}: <a href="/questions/${t.slug}/">questions</a> · <a href="/practice/">practice</a>${t.extra ? ` · <a href="${t.extra}">${t.extraLabel}</a>` : ''}</li>`).join('')}</ul>`; }).join('') + `<p class="muted">Last week before Paper 1: a full <a href="/mock/">mock</a> and the <a href="/what-came-up/">latest papers</a>.</p>`;
+      window.scrollTo({ top: 0 });
+    });
+    $('#print').addEventListener('click', () => window.print());
+    $('#redo').addEventListener('click', () => { $('#plan').hidden = true; $('#setup').hidden = false; });
+  </script>
+</Base>

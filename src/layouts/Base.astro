@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import BottomBar from '../components/BottomBar.astro';
+import Footer from '../components/Footer.astro';
+import LeadBlock from '../components/LeadBlock.astro';
+import site from '../data/site.json';
+const { title, description = 'Free Edexcel A-level Economics past-paper questions, mark schemes, examiner comments and practice, with Pearson Edexcel specialist tutors.', context = 'site', lead = true, leadLine } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.domain).href;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+        <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og.png', site.domain).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <Header />
+    <main class="wrap">
+      <slot />
+      {lead && <LeadBlock context={context} line={leadLine} />}
+    </main>
+    <Footer />
+    <BottomBar context={context} />
+    <script>
+      import '../scripts/ui.js';
+    </script>
+  </body>
+</html>

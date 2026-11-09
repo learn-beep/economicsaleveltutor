@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import { allPapers, PEARSON_MATERIALS } from '../../lib/data';
+const seriesList = [...new Set(allPapers.map((p) => p.series))];
+const cell = (series, spec, n) => allPapers.find((p) => p.series === series && p.spec === spec && p.paperNo === n);
+---
+<Base title="Edexcel A-level Economics past papers (9EC0 and AS 8EC0) 2016–2025 with question-by-question tables" context="past-papers">
+  <h1>Edexcel A-level Economics past papers</h1>
+  <p>Every 9EC0 and 8EC0 series since 2016, all from Pearson's own downloads. Each paper page lists every question with its topic, marks, assessment objectives and type, shows the questions with their mark schemes and examiner's comments.</p>
+  <p><a class="btn" href={PEARSON_MATERIALS} rel="noopener">Pearson Edexcel's assessment resources</a></p>
+  <h2>A level (9EC0)</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Series</th><th>Paper 1</th><th>Paper 2</th><th>Paper 3</th></tr></thead>
+    <tbody>{seriesList.map((s) => <tr><td>{s}</td>{[1, 2, 3].map((n) => { const p = cell(s, '9EC0', n); return <td>{p ? <a href={`/past-papers/${p.slug}/`}>{p.paper}</a> : '—'}</td>; })}</tr>)}</tbody>
+  </table></div>
+  <h2 id="as">AS (8EC0)</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Series</th><th>Paper 1</th><th>Paper 2</th></tr></thead>
+    <tbody>{seriesList.map((s) => <tr><td>{s}</td>{[1, 2].map((n) => { const p = cell(s, '8EC0', n); return <td>{p ? <a href={`/past-papers/${p.slug}/`}>{p.paper}</a> : '—'}</td>; })}</tr>)}</tbody>
+  </table></div>
+  <p class="muted">The October 2020 papers are the papers printed for the cancelled summer 2020 exams; November 2021 was the series sat in place of the cancelled summer 2021 exams (no AS series that month). The June 2026 papers will be added when Pearson releases them, expected after the summer 2027 exams.</p>
+</Base>

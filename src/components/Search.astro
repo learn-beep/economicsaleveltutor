@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+---
+<div class="search-panel" id="search-panel" hidden>
+  <div class="wrap">
+    <input class="search" type="search" id="site-search" placeholder="Search topics, papers, spec statements, tools…" autocomplete="off" aria-label="Search the site" />
+    <ul class="search-results" id="search-results"></ul>
+  </div>
+</div>
+<script>
+  const toggle = document.getElementById('search-toggle'), panel = document.getElementById('search-panel'), input = document.getElementById('site-search'), out = document.getElementById('search-results');
+  let index = null;
+  toggle.addEventListener('click', async () => {
+    const open = panel.hidden; panel.hidden = !open; toggle.setAttribute('aria-expanded', String(open));
+    if (open) { input.focus(); if (!index) { try { index = await (await fetch('/data/search.json')).json(); } catch { index = []; } } }
+  });
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase(); if (!index || q.length < 2) { out.innerHTML = ''; return; }
+    const terms = q.split(/\s+/);
+    const hits = index.map((it) => ({ it, score: terms.reduce((s, t) => s + (it.t.toLowerCase().includes(t) ? 2 : 0) + ((it.k || '').toLowerCase().includes(t) ? 1 : 0), 0) })).filter((h) => h.score > 0).sort((a, b) => b.score - a.score).slice(0, 12);
+    out.innerHTML = hits.length ? hits.map(({ it }) => `<li><a href="${it.u}"><span>${it.t}</span><span class="kind">${it.kind}</span></a></li>`).join('') : '<li class="muted">No matches.</li>';
+  });
+</script>

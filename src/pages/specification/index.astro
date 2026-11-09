@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hint from '../../components/Hint.astro';
+import spec from '../../data/spec.json';
+const sections = spec.filter((s) => s.statements.length);
+const total = sections.reduce((n, s) => n + s.statements.length, 0);
+const papers = [[1, 'Theme 1: Introduction to markets and market failure (AS and A level)'], [2, 'Theme 2: The UK economy, performance and policies (AS and A level)'], [3, 'Theme 3: Business behaviour and the labour market (A level only)'], [4, 'Theme 4: A global perspective (A level only)']];
+---
+<Base title="Edexcel A-level Economics specification checklist (9EC0): all 87 statements, tickable" description="All 87 content statements of the Pearson Edexcel A-level Economics A specification (9EC0) as a tickable checklist, with the AS content (Themes 1 and 2) marked and links to the past-paper questions for each topic." context="specification" leadLine="Big gaps on the checklist? A tutor can plan the order to close them.">
+  <h1>Specification checklist</h1>
+  <p>Every content statement in the Pearson Edexcel Economics A specification (9EC0, Issue 2), with the sub-points as Pearson lists them. Tick what you're confident with; ticks are saved in this browser only. Themes 1 and 2 are the whole of the AS (8EC0) and are examined again at A level alongside Themes 3 and 4; Paper 3 can draw on any of the four.</p>
+  <Hint id="ticks" text="Ticks are saved in this browser only. The revision planner uses them to pick your weak topics." />
+  <p class="muted"><span id="done">0</span> of {total} ticked · <button class="chip" type="button" id="clear">Clear my ticks</button></p>
+  {papers.map(([n, h]) => (
+    <>
+      <h2 class="strand-head">{h}</h2>
+      {sections.filter((s) => s.theme === n).map((s) => (
+        <section>
+          <h3>{s.code} {s.title} <span class="muted small-text">{s.area}</span> {s.topic && <a class="small-text" href={`/questions/${s.topic}/`}>questions</a>}</h3>
+          <ul class="spec-list">
+            {s.statements.map((st) => (
+              <li><label><input type="checkbox" data-spec={st.id} /><span><strong>{st.id}</strong> {st.short}{st.as && <span class="pill pill-easy" style="margin-left:.4rem">AS</span>}{st.points?.length ? <ul class="muted small-text">{st.points.map((pt) => <li>{pt.k}) {pt.t}</li>)}</ul> : <br />}{!st.points?.length && <span class="muted small-text">{st.text}</span>}</span></label></li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </>
+  ))}
+  <script>
+    const KEY = 'malt-spec';
+    const boxes = document.querySelectorAll('input[data-spec]');
+    const done = document.getElementById('done');
+    let state = {};
+    try { state = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch {}
+    const paint = () => { let n = 0; boxes.forEach((b) => { b.checked = !!state[b.dataset.spec]; if (b.checked) n++; }); done.textContent = String(n); };
+    boxes.forEach((b) => b.addEventListener('change', () => { state[b.dataset.spec] = b.checked; try { localStorage.setItem(KEY, JSON.stringify(state)); } catch {} paint(); }));
+    document.getElementById('clear').addEventListener('click', () => { state = {}; try { localStorage.removeItem(KEY); } catch {} paint(); });
+    paint();
+  </script>
+</Base>

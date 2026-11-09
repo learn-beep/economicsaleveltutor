@@ -1,0 +1,78 @@
+---
+import Base from '../../layouts/Base.astro';
+import QuestionCard from '../../components/QuestionCard.astro';
+import Motif from '../../components/Motif.astro';
+import Icon from '../../components/Icon.astro';
+import Hint from '../../components/Hint.astro';
+import { allTopics, questionsForTopic } from '../../lib/data';
+import { deckFor } from '../../lib/decks';
+export function getStaticPaths() {
+  return allTopics.map((t) => ({ params: { slug: t.slug }, props: { topic: t } }));
+}
+const { topic } = Astro.props;
+const qs = questionsForTopic(topic.slug);
+const current = qs.filter((q) => !q.notCurrentSpec);
+const essays = current.filter((q) => q.format === 'Essay');
+const extended = current.filter((q) => q.format === 'Extended response');
+const years = [...new Set(qs.map((q) => q.year))].sort((a, b) => b - a);
+const papers = [...new Set(qs.map((q) => q.paper))].sort();
+const deck = deckFor(topic.slug);
+const theme = Number(topic.paper.replace('Theme ', ''));
+const motifKind = theme === 1 ? (topic.slug.includes('government') || topic.slug.includes('tax') ? 'coins' : 'market') : theme === 2 ? (topic.slug.includes('fiscal') || topic.slug.includes('financ') ? 'coins' : 'macro') : theme === 3 ? (topic.slug.includes('labour') ? 'people' : 'firm') : (topic.slug.includes('public') || topic.slug.includes('financial') ? 'coins' : 'globe');
+const whichPaper = theme === 1 || theme === 3 ? 'Paper 1 (and Paper 3)' : 'Paper 2 (and Paper 3)';
+const asPaper = theme <= 2 ? `AS Paper ${theme}` : null;
+---
+<Base title={`${topic.name}: Edexcel A-level Economics past-paper questions with mark schemes`} description={`Every Pearson Edexcel Economics A past-paper question on ${topic.name.toLowerCase()} since 2016 (${current.length} parts), with the data, mark schemes, examiner comments and every essay title set.`} context={`topic:${topic.slug}`}>
+  <div class="topic-head"><h1>{topic.name} <span class={`badge badge-${theme}`}>{topic.paper}</span></h1><Motif kind={motifKind} /></div>
+  <div class="where">
+    <dl>
+      <dt>Where it is examined</dt><dd>A-level {whichPaper}{asPaper ? `; ${asPaper}` : ''}</dd>
+      <dt>Level</dt><dd>{topic.asOrA}</dd>
+      <dt>Specification</dt><dd>Section {topic.code}, {topic.statements.length} statement{topic.statements.length === 1 ? '' : 's'}</dd>
+      <dt>Since 2016</dt><dd>{current.length} question parts: {essays.length} essays, {extended.length} levels-marked responses, {topic.mcq} multiple-choice items</dd>
+    </dl>
+  </div>
+  <div class="score-note" id="myscore" hidden></div>
+
+  {deck ? <div class="btn-row"><a class="btn btn-accent" href={`/questions/${topic.slug}/terms/`}><Icon name="layers" />Key terms cards ({deck.terms.length})</a><a class="btn" href="/practice/define/"><Icon name="target" />Define-it drill</a></div> : <p class="muted">Notes and key-term cards for this topic are being written by our tutors. The past-paper questions below are ready now.</p>}
+
+  <h2>Specification statements</h2>
+  <ul class="spec-list">{topic.statements.map((id) => <li><strong>{id}</strong> <b>{topic.statementShort?.[id]}</b>{topic.statementShort?.[id] ? ': ' : ''}{topic.statementText[id].replace(new RegExp('^' + (topic.statementShort?.[id] || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ':?\\s*'), '')}{topic.levels?.[id] === 'AS & A level' && <span class="pill pill-easy" style="margin-left:.4rem">AS</span>}</li>)}</ul>
+
+  {essays.length > 0 && <><h2>Every essay set on this topic</h2>
+  <div class="table-wrap"><table><thead><tr><th>Series</th><th>Paper</th><th>Q</th><th>Marks</th><th>Title</th></tr></thead>
+  <tbody>{essays.map((q) => <tr><td>{q.series}</td><td>{q.level === 'AS' ? 'AS ' : ''}{q.paper}</td><td><a href={`#${q.id}`}>{q.question}</a></td><td>{q.marks}</td><td>{q.text.replace(/^\(?[a-z0-9]+\)?\s*/i, '').replace(/\s*\(\d+\)\s*$/, '').split('\n')[0]}</td></tr>)}</tbody></table></div></>}
+
+  <h2>Past-paper questions</h2>
+  <p><a class="btn" href={`/questions/${topic.slug}/print/`}><Icon name="printer" />Print this topic as a pack</a></p>
+  <div class="filterbar"><div class="chips" role="group" aria-label="Filter">
+    <button class="chip" type="button" aria-pressed="true" data-filter="">All ({current.length})</button>
+    <button class="chip" type="button" aria-pressed="false" data-filter="format:Multiple choice">Multiple choice</button>
+    <button class="chip" type="button" aria-pressed="false" data-filter="format:Calculation">Calculations</button>
+    <button class="chip" type="button" aria-pressed="false" data-filter="format:Diagram">Diagrams</button>
+    <button class="chip" type="button" aria-pressed="false" data-filter="format:Extended response">8–15 marks</button>
+    <button class="chip" type="button" aria-pressed="false" data-filter="format:Essay">Essays</button>
+    {papers.map((p) => <button class="chip" type="button" aria-pressed="false" data-filter={`paper:${p}`}>{p}</button>)}
+    <button class="chip" type="button" aria-pressed="false" data-filter="level:AS">AS</button>
+    <button class="chip" type="button" aria-pressed="false" data-filter="level:A level">A level</button>
+    {years.slice(0, 3).map((y) => <button class="chip" type="button" aria-pressed="false" data-filter={`year:${y}`}>{y}</button>)}
+  </div><div class="count" id="count"></div></div>
+  <Hint id="reveal" text="Tap a question to zoom it. The data and extracts fold out above each question; the mark scheme and examiner's comment open underneath." />
+  {qs.map((q) => <QuestionCard q={q} />)}
+
+  <script define:vars={{ slug: topic.slug }}>
+    try { const s = JSON.parse(localStorage.getItem('malt-scores') || '{}')[slug]; if (s && s.total) { const el = document.getElementById('myscore'); el.hidden = false; el.innerHTML = `Your practice score on this topic: <strong>${s.earned}/${s.total}</strong> (${Math.round(100 * s.earned / s.total)}%) over ${s.n} question${s.n === 1 ? '' : 's'}. <a href="/practice/">Practise more</a>`; } } catch {}
+  </script>
+  <script>
+    const chips = document.querySelectorAll('.chip[data-filter]');
+    const cards = document.querySelectorAll('.qcard');
+    chips.forEach((c) => c.addEventListener('click', () => {
+      chips.forEach((x) => x.setAttribute('aria-pressed', 'false'));
+      c.setAttribute('aria-pressed', 'true');
+      const f = c.getAttribute('data-filter') || '';
+      const [key, val] = f.split(':');
+      cards.forEach((card) => { card.hidden = !!f && card.getAttribute('data-' + key) !== val; });
+      document.getElementById('count').textContent = `Showing ${[...cards].filter((c) => !c.hidden).length} of ${cards.length}`;
+    }));
+  </script>
+</Base>

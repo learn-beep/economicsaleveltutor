@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { allPapers, byId, topicByslug } from '../../lib/data';
+const latest = allPapers.filter((p) => p.kind === 'exam').sort((a, b) => b.year - a.year)[0].series;
+const papers = allPapers.filter((p) => p.series === latest).sort((a, b) => a.spec.localeCompare(b.spec) || a.paperNo - b.paperNo);
+---
+<Base title={`What came up in Edexcel Economics ${latest}: every question by topic and marks`} description={`Question-by-question summary of the ${latest} Edexcel Economics papers: topics, marks, essay titles and what it means for next year.`} context="what-came-up" leadLine="Want next summer's papers gone through topic by topic? Message us.">
+  <h1>What came up: {latest}</h1>
+  <p class="muted">{latest} is the latest series the board has released publicly (Pearson is expected to release the June 2026 papers after the summer 2027 exams).</p>
+  <p>The most recent series, question by question. Use it to see which topics carried the essays and which were examined only through short questions; the <a href="/essays/">essays page</a> shows how far back each title was last set.</p>
+  {papers.map((p) => { const qs = p.questions.map((id) => byId.get(id)).filter(Boolean); const essays = qs.filter((q) => q.format === 'Essay'); return <>
+    <h2><a href={`/past-papers/${p.slug}/`}>{p.qual === 'AS' ? 'AS ' : ''}{p.paper}</a> <span class="muted">({p.total} marks)</span></h2>
+    {essays.length > 0 && <p><strong>Essays:</strong> {essays.map((q, i) => <>{i ? '; ' : ''}{q.topics.map((t) => topicByslug.get(t)?.name).join(', ')} (Q{q.question})</>)}</p>}
+    <div class="table-wrap"><table><thead><tr><th>Q</th><th>Topic</th><th>Marks</th><th>Type</th></tr></thead>
+      <tbody>{qs.map((q) => <tr><td><a href={`/past-papers/${p.slug}/#${q.id}`}>{q.question}</a></td><td>{q.topics.map((t, i) => <>{i ? ', ' : ''}<a href={`/questions/${t}/`}>{topicByslug.get(t)?.name ?? t}</a></>)}</td><td>{q.marks}</td><td>{q.format}</td></tr>)}</tbody></table></div>
+  </>; })}
+  <p class="muted">This page regenerates when the next series is added.</p>
+</Base>

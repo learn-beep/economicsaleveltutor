@@ -1,0 +1,2683 @@
+[
+{
+"code": "1.1",
+"title": "Nature of economics",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 1,
+"aLevelOnly": false,
+"topic": "nature-of-economics",
+"statements": [
+{
+"id": "1.1.1",
+"short": "Economics as a social science",
+"text": "Economics as a social science: a) Thinking like an economist: the process of developing models in economics, including the need to make assumptions b) The use of the ceteris paribus assumption in building models c) The inability in economics to make scientific experiments",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Thinking like an economist: the process of developing models in economics, including the need to make assumptions"
+},
+{
+"k": "b",
+"t": "The use of the ceteris paribus assumption in building models"
+},
+{
+"k": "c",
+"t": "The inability in economics to make scientific experiments"
+}
+],
+"page": 6,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"nature-of-economics"
+]
+},
+{
+"id": "1.1.2",
+"short": "Positive and normative economic statements",
+"text": "Positive and normative economic statements: a) Distinction between positive and normative economic statements b) The role of value judgements in influencing economic decision making and policy",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Distinction between positive and normative economic statements"
+},
+{
+"k": "b",
+"t": "The role of value judgements in influencing economic decision making and policy"
+}
+],
+"page": 6,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"nature-of-economics"
+]
+},
+{
+"id": "1.1.3",
+"short": "The economic problem",
+"text": "The economic problem: a) The problem of scarcity – where there are unlimited wants and finite resources b) The distinction between renewable and non-renewable resources c) The importance of opportunity costs to economic agents (consumers, producers and government)",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The problem of scarcity – where there are unlimited wants and finite resources"
+},
+{
+"k": "b",
+"t": "The distinction between renewable and non-renewable resources"
+},
+{
+"k": "c",
+"t": "The importance of opportunity costs to economic agents (consumers, producers and government)"
+}
+],
+"page": 6,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"nature-of-economics"
+]
+},
+{
+"id": "1.1.4",
+"short": "Production possibility frontiers",
+"text": "Production possibility frontiers: a) The use of production possibility frontiers to depict: • the maximum productive potential of an economy • opportunity cost (through marginal analysis) • economic growth or decline • efficient or inefficient allocation of resources • possible and unobtainable production b) The distinction between movements along and shifts in production possibility curves, considering the possible causes for such changes c) The distinction between capital and consumer goods",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The use of production possibility frontiers to depict: • the maximum productive potential of an economy • opportunity cost (through marginal analysis) • economic growth or decline • efficient or inefficient allocation of resources • possible and unobtainable production"
+},
+{
+"k": "b",
+"t": "The distinction between movements along and shifts in production possibility curves, considering the possible causes for such changes"
+},
+{
+"k": "c",
+"t": "The distinction between capital and consumer goods"
+}
+],
+"page": 6,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"production-possibility-frontiers"
+]
+},
+{
+"id": "1.1.5",
+"short": "Specialisation and the division of labour",
+"text": "Specialisation and the division of labour: a) Specialisation and the division of labour: reference to Adam Smith b) The advantages and disadvantages of specialisation and the division of labour in organising production c) The advantages and disadvantages of specialising in the production of goods and services to trade d) The functions of money (as a medium of exchange, a measure of value, a store of value, a method of deferred payment)",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Specialisation and the division of labour: reference to Adam Smith"
+},
+{
+"k": "b",
+"t": "The advantages and disadvantages of specialisation and the division of labour in organising production"
+},
+{
+"k": "c",
+"t": "The advantages and disadvantages of specialising in the production of goods and services to trade"
+},
+{
+"k": "d",
+"t": "The functions of money (as a medium of exchange, a measure of value, a store of value, a method of deferred payment)"
+}
+],
+"page": 6,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"specialisation-and-division-of-labour"
+]
+},
+{
+"id": "1.1.6",
+"short": "Free market economies, mixed economy and command economy",
+"text": "Free market economies, mixed economy and command economy: a) The distinction between free market, mixed and command economies: reference to Adam Smith, Friedrich Hayek and Karl Marx b) The advantages and disadvantages of a free market economy and a command economy c) The role of the state in a mixed economy",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The distinction between free market, mixed and command economies: reference to Adam Smith, Friedrich Hayek and Karl Marx"
+},
+{
+"k": "b",
+"t": "The advantages and disadvantages of a free market economy and a command economy"
+},
+{
+"k": "c",
+"t": "The role of the state in a mixed economy"
+}
+],
+"page": 6,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"economic-systems"
+]
+}
+]
+},
+{
+"code": "1.2",
+"title": "How markets work",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 1,
+"aLevelOnly": false,
+"topic": "rational-decision-making-and-behavioural-economics",
+"statements": [
+{
+"id": "1.2.1",
+"short": "Rational decision making",
+"text": "Rational decision making: a) The underlying assumptions of rational economic decision making: • consumers aim to maximise utility • firms aim to maximise profits",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The underlying assumptions of rational economic decision making: • consumers aim to maximise utility • firms aim to maximise profits"
+}
+],
+"page": 7,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"rational-decision-making-and-behavioural-economics"
+]
+},
+{
+"id": "1.2.2",
+"short": "Demand",
+"text": "Demand: a) The distinction between movements along a demand curve and shifts of a demand curve b) The factors that may cause a shift in the demand curve (the conditions of demand) c) The concept of diminishing marginal utility and how this influences the shape of the demand curve",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The distinction between movements along a demand curve and shifts of a demand curve"
+},
+{
+"k": "b",
+"t": "The factors that may cause a shift in the demand curve (the conditions of demand)"
+},
+{
+"k": "c",
+"t": "The concept of diminishing marginal utility and how this influences the shape of the demand curve"
+}
+],
+"page": 7,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"supply-and-demand"
+]
+},
+{
+"id": "1.2.3",
+"short": "Price, income and cross elasticities of demand",
+"text": "Price, income and cross elasticities of demand: a) Understanding of price, income and cross elasticities of demand b) Use formulae to calculate price, income and cross elasticities of demand c) Interpret numerical values of • price elasticity of demand: unitary elastic, perfectly and relatively elastic, and perfectly and relatively inelastic • income elasticity of demand: inferior, normal and luxury goods; relatively elastic and relatively inelastic • cross elasticity of demand: substitutes, complementary and unrelated goods d) The factors influencing elasticities of demand e) The significance of elasticities of demand to firms and government in terms of: • the imposition of indirect taxes and subsidies • changes in real income • changes in the prices of substitute and complementary goods f) The relationship between price elasticity of demand and total revenue (including calculation)",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Understanding of price, income and cross elasticities of demand"
+},
+{
+"k": "b",
+"t": "Use formulae to calculate price, income and cross elasticities of demand"
+},
+{
+"k": "c",
+"t": "Interpret numerical values of • price elasticity of demand: unitary elastic, perfectly and relatively elastic, and perfectly and relatively inelastic • income elasticity of demand: inferior, normal and luxury goods; relatively elastic and relatively inelastic • cross elasticity of demand: substitutes, complementary and unrelated goods"
+},
+{
+"k": "d",
+"t": "The factors influencing elasticities of demand"
+},
+{
+"k": "e",
+"t": "The significance of elasticities of demand to firms and government in terms of: • the imposition of indirect taxes and subsidies • changes in real income • changes in the prices of substitute and complementary goods"
+},
+{
+"k": "f",
+"t": "The relationship between price elasticity of demand and total revenue (including calculation)"
+}
+],
+"page": 7,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"price-elasticity-of-demand"
+]
+},
+{
+"id": "1.2.4",
+"short": "Supply",
+"text": "Supply: a) The distinction between movements along a supply curve and shifts of a supply curve b) The factors that may cause a shift in the supply curve (the conditions of supply)",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The distinction between movements along a supply curve and shifts of a supply curve"
+},
+{
+"k": "b",
+"t": "The factors that may cause a shift in the supply curve (the conditions of supply)"
+}
+],
+"page": 7,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"supply-and-demand"
+]
+},
+{
+"id": "1.2.5",
+"short": "Elasticity of supply",
+"text": "Elasticity of supply: a) Understanding of price elasticity of supply b) Use formula to calculate price elasticity of supply c) Interpret numerical values of price elasticity of supply: perfectly and relatively elastic, and perfectly and relatively inelastic d) Factors that influence price elasticity of supply e) The distinction between short run and long run in economics and its significance for elasticity of supply",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Understanding of price elasticity of supply"
+},
+{
+"k": "b",
+"t": "Use formula to calculate price elasticity of supply"
+},
+{
+"k": "c",
+"t": "Interpret numerical values of price elasticity of supply: perfectly and relatively elastic, and perfectly and relatively inelastic"
+},
+{
+"k": "d",
+"t": "Factors that influence price elasticity of supply"
+},
+{
+"k": "e",
+"t": "The distinction between short run and long run in economics and its significance for elasticity of supply"
+}
+],
+"page": 8,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"elasticity-of-supply"
+]
+},
+{
+"id": "1.2.6",
+"short": "Price determination",
+"text": "Price determination: a) Equilibrium price and quantity and how they are determined b) The use of supply and demand diagrams to depict excess supply and excess demand c) The operation of market forces to eliminate excess demand and excess supply d) The use of supply and demand diagrams to show how shifts in demand and supply curves cause the equilibrium price and quantity to change in real-world situations",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Equilibrium price and quantity and how they are determined"
+},
+{
+"k": "b",
+"t": "The use of supply and demand diagrams to depict excess supply and excess demand"
+},
+{
+"k": "c",
+"t": "The operation of market forces to eliminate excess demand and excess supply"
+},
+{
+"k": "d",
+"t": "The use of supply and demand diagrams to show how shifts in demand and supply curves cause the equilibrium price and quantity to change in real-world situations"
+}
+],
+"page": 8,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"supply-and-demand"
+]
+},
+{
+"id": "1.2.7",
+"short": "Price mechanism",
+"text": "Price mechanism: a) Functions of the price mechanism to allocate resources: • rationing • incentive • signalling b) The price mechanism in the context of different types of markets, including local, national and global markets",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Functions of the price mechanism to allocate resources: • rationing • incentive • signalling"
+},
+{
+"k": "b",
+"t": "The price mechanism in the context of different types of markets, including local, national and global markets"
+}
+],
+"page": 8,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"price-mechanism-and-surplus"
+]
+},
+{
+"id": "1.2.8",
+"short": "Consumer and producer surplus",
+"text": "Consumer and producer surplus: a) The distinction between consumer and producer surplus b) The use of supply and demand diagrams to illustrate consumer and producer surplus c) How changes in supply and demand might affect consumer and producer surplus",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The distinction between consumer and producer surplus"
+},
+{
+"k": "b",
+"t": "The use of supply and demand diagrams to illustrate consumer and producer surplus"
+},
+{
+"k": "c",
+"t": "How changes in supply and demand might affect consumer and producer surplus"
+}
+],
+"page": 8,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"price-mechanism-and-surplus"
+]
+},
+{
+"id": "1.2.9",
+"short": "Indirect taxes and subsidies",
+"text": "Indirect taxes and subsidies: a) Supply and demand analysis, elasticities, and: • the impact of indirect taxes on consumers, producers and government • the incidence of indirect taxes on consumers and producers • the impact of subsidies on consumers, producers and government • the area that represents the producer subsidy and consumer subsidy",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Supply and demand analysis, elasticities, and: • the impact of indirect taxes on consumers, producers and government • the incidence of indirect taxes on consumers and producers • the impact of subsidies on consumers, producers and government • the area that represents the producer subsidy and consumer subsidy"
+}
+],
+"page": 8,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"indirect-taxes-and-subsidies"
+]
+},
+{
+"id": "1.2.10",
+"short": "Alternative views of consumer behaviour",
+"text": "Alternative views of consumer behaviour: a) The reasons why consumers may not behave rationally: • consideration of the influence of other people's behaviour • the importance of habitual behaviour • consumer weakness at computation",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The reasons why consumers may not behave rationally: • consideration of the influence of other people's behaviour • the importance of habitual behaviour • consumer weakness at computation"
+}
+],
+"page": 8,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"rational-decision-making-and-behavioural-economics"
+]
+}
+]
+},
+{
+"code": "1.3",
+"title": "Market failure",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 1,
+"aLevelOnly": false,
+"topic": "externalities",
+"statements": [
+{
+"id": "1.3.1",
+"short": "Types of market failure",
+"text": "Types of market failure: a) Understanding of market failure b) Types of market failure • externalities • under-provision of public goods • information gaps",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Understanding of market failure"
+},
+{
+"k": "b",
+"t": "Types of market failure • externalities • under-provision of public goods • information gaps"
+}
+],
+"page": 9,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"externalities"
+]
+},
+{
+"id": "1.3.2",
+"short": "Externalities",
+"text": "Externalities: a) Distinction between private costs, external costs and social costs b) Distinction between private benefits, external benefits and social benefits c) Use of a diagram to illustrate: • the external costs of production using marginal analysis • the distinction between market equilibrium and social optimum position • identification of welfare loss area d) Use of a diagram to illustrate: • the external benefits of consumption using marginal analysis • the distinction between market equilibrium and social optimum position • identification of welfare gain area e) The impact on economic agents of externalities and government intervention in various markets",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Distinction between private costs, external costs and social costs"
+},
+{
+"k": "b",
+"t": "Distinction between private benefits, external benefits and social benefits"
+},
+{
+"k": "c",
+"t": "Use of a diagram to illustrate: • the external costs of production using marginal analysis • the distinction between market equilibrium and social optimum position • identification of welfare loss area"
+},
+{
+"k": "d",
+"t": "Use of a diagram to illustrate: • the external benefits of consumption using marginal analysis • the distinction between market equilibrium and social optimum position • identification of welfare gain area"
+},
+{
+"k": "e",
+"t": "The impact on economic agents of externalities and government intervention in various markets"
+}
+],
+"page": 9,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"externalities"
+]
+},
+{
+"id": "1.3.3",
+"short": "Public goods",
+"text": "Public goods: a) Distinction between public and private goods using the concepts of non-rivalry and non-excludability b) Why public goods may not be provided by the private sector: the free rider problem",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Distinction between public and private goods using the concepts of non-rivalry and non-excludability"
+},
+{
+"k": "b",
+"t": "Why public goods may not be provided by the private sector: the free rider problem"
+}
+],
+"page": 9,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"public-goods-and-information-gaps"
+]
+},
+{
+"id": "1.3.4",
+"short": "Information gaps",
+"text": "Information gaps: a) The distinction between symmetric and asymmetric information b) How imperfect market information may lead to a misallocation of resources",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The distinction between symmetric and asymmetric information"
+},
+{
+"k": "b",
+"t": "How imperfect market information may lead to a misallocation of resources"
+}
+],
+"page": 9,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"public-goods-and-information-gaps"
+]
+}
+]
+},
+{
+"code": "1.4",
+"title": "Government intervention",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 1,
+"aLevelOnly": false,
+"topic": "government-intervention-in-markets",
+"statements": [
+{
+"id": "1.4.1",
+"short": "Government intervention in markets",
+"text": "Government intervention in markets: a) Purpose of intervention with reference to market failure and using diagrams in various contexts: • indirect taxation (ad valorem and specific) • subsidies • maximum and minimum prices b) Other methods of government intervention: • trade pollution permits • state provision of public goods • provision of information • regulation",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Purpose of intervention with reference to market failure and using diagrams in various contexts: • indirect taxation (ad valorem and specific) • subsidies • maximum and minimum prices"
+},
+{
+"k": "b",
+"t": "Other methods of government intervention: • trade pollution permits • state provision of public goods • provision of information • regulation"
+}
+],
+"page": 10,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"government-intervention-in-markets"
+]
+},
+{
+"id": "1.4.2",
+"short": "Government failure",
+"text": "Government failure: a) Understanding of government failure as intervention that results in a net welfare loss b) Causes of government failure: • distortion of price signals • unintended consequences • excessive administrative costs • information gaps c) Government failure in various markets",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Understanding of government failure as intervention that results in a net welfare loss"
+},
+{
+"k": "b",
+"t": "Causes of government failure: • distortion of price signals • unintended consequences • excessive administrative costs • information gaps"
+},
+{
+"k": "c",
+"t": "Government failure in various markets"
+}
+],
+"page": 10,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"government-failure"
+]
+}
+]
+},
+{
+"code": "2.1",
+"title": "Measures of economic performance",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 2,
+"aLevelOnly": false,
+"topic": "measuring-economic-growth",
+"statements": [
+{
+"id": "2.1.1",
+"short": "Economic growth",
+"text": "Economic growth: a) Rates of change of real Gross Domestic Product (GDP) as a measure of economic growth b) Distinction between: • real and nominal • total and per capita • value and volume c) Other national income measures: • Gross National Income (GNI) d) Comparison of rates of growth between countries and over time e) Understanding of Purchasing Power Parities (PPPs) and the use of PPP-adjusted figures in international comparisons f) The limitations of using GDP to compare living standards between countries and over time g) National happiness: • UK national wellbeing • The relationship between real incomes and subjective happiness",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Rates of change of real Gross Domestic Product (GDP) as a measure of economic growth"
+},
+{
+"k": "b",
+"t": "Distinction between: • real and nominal • total and per capita • value and volume"
+},
+{
+"k": "c",
+"t": "Other national income measures: • Gross National Income (GNI)"
+},
+{
+"k": "d",
+"t": "Comparison of rates of growth between countries and over time"
+},
+{
+"k": "e",
+"t": "Understanding of Purchasing Power Parities (PPPs) and the use of PPP-adjusted figures in international comparisons"
+},
+{
+"k": "f",
+"t": "The limitations of using GDP to compare living standards between countries and over time"
+},
+{
+"k": "g",
+"t": "National happiness: • UK national wellbeing • The relationship between real incomes and subjective happiness"
+}
+],
+"page": 12,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"measuring-economic-growth"
+]
+},
+{
+"id": "2.1.2",
+"short": "Inflation",
+"text": "Inflation: a) Understanding of: • inflation • deflation • disinflation b) The process of calculating the rate of inflation in the UK using the Consumer Prices Index (CPI) c) The limitations of CPI in measuring the rate of inflation d) The Retail Prices Index (RPI) as an alternative measure of the rate of inflation e) Causes of inflation: • demand pull • cost push • growth of the money supply f) The effects of inflation on consumers, firms, the government and workers",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Understanding of: • inflation • deflation • disinflation"
+},
+{
+"k": "b",
+"t": "The process of calculating the rate of inflation in the UK using the Consumer Prices Index (CPI)"
+},
+{
+"k": "c",
+"t": "The limitations of CPI in measuring the rate of inflation"
+},
+{
+"k": "d",
+"t": "The Retail Prices Index (RPI) as an alternative measure of the rate of inflation"
+},
+{
+"k": "e",
+"t": "Causes of inflation: • demand pull • cost push • growth of the money supply"
+},
+{
+"k": "f",
+"t": "The effects of inflation on consumers, firms, the government and workers"
+}
+],
+"page": 12,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"inflation"
+]
+},
+{
+"id": "2.1.3",
+"short": "Employment and unemployment",
+"text": "Employment and unemployment: a) Measures of unemployment: • the claimant count • the International Labour Organisation (ILO) and the UK Labour Force Survey b) The distinction between unemployment and under-employment c) The significance of changes in the rates of: • employment • unemployment • inactivity d) The causes of unemployment: • structural unemployment • frictional unemployment • seasonal unemployment • demand deficiency and cyclical unemployment • real wage inflexibility e) The significance of migration and skills for employment and unemployment f) The effects of unemployment on consumers, firms, workers, the government and society",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Measures of unemployment: • the claimant count • the International Labour Organisation (ILO) and the UK Labour Force Survey"
+},
+{
+"k": "b",
+"t": "The distinction between unemployment and under-employment"
+},
+{
+"k": "c",
+"t": "The significance of changes in the rates of: • employment • unemployment • inactivity"
+},
+{
+"k": "d",
+"t": "The causes of unemployment: • structural unemployment • frictional unemployment • seasonal unemployment • demand deficiency and cyclical unemployment • real wage inflexibility"
+},
+{
+"k": "e",
+"t": "The significance of migration and skills for employment and unemployment"
+},
+{
+"k": "f",
+"t": "The effects of unemployment on consumers, firms, workers, the government and society"
+}
+],
+"page": 13,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"unemployment"
+]
+},
+{
+"id": "2.1.4",
+"short": "Balance of payments",
+"text": "Balance of payments: a) Components of the balance of payments, with particular reference to the current account, and the balance of trade in goods and services b) Current account deficits and surpluses c) The relationship between current account imbalances and other macroeconomic objectives d) The interconnectedness of economies through international trade",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Components of the balance of payments, with particular reference to the current account, and the balance of trade in goods and services"
+},
+{
+"k": "b",
+"t": "Current account deficits and surpluses"
+},
+{
+"k": "c",
+"t": "The relationship between current account imbalances and other macroeconomic objectives"
+},
+{
+"k": "d",
+"t": "The interconnectedness of economies through international trade"
+}
+],
+"page": 13,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"balance-of-payments"
+]
+}
+]
+},
+{
+"code": "2.2",
+"title": "Aggregate demand (AD)",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 2,
+"aLevelOnly": false,
+"topic": "aggregate-demand",
+"statements": [
+{
+"id": "2.2.1",
+"short": "The characteristics of AD",
+"text": "The characteristics of AD: a) Components of AD: C+I+G+(X-M) b) The relative importance of the components of AD c) The AD curve d) The distinction between a movement along, and a shift of, the AD curve",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Components of AD: C+I+G+(X-M)"
+},
+{
+"k": "b",
+"t": "The relative importance of the components of AD"
+},
+{
+"k": "c",
+"t": "The AD curve"
+},
+{
+"k": "d",
+"t": "The distinction between a movement along, and a shift of, the AD curve"
+}
+],
+"page": 14,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"aggregate-demand"
+]
+},
+{
+"id": "2.2.2",
+"short": "Consumption (C)",
+"text": "Consumption (C): a) Disposable income and its influence on consumer spending b) An understanding of the relationship between savings and consumption c) Other influences on consumer spending: • interest rates • consumer confidence • wealth effects",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Disposable income and its influence on consumer spending"
+},
+{
+"k": "b",
+"t": "An understanding of the relationship between savings and consumption"
+},
+{
+"k": "c",
+"t": "Other influences on consumer spending: • interest rates • consumer confidence • wealth effects"
+}
+],
+"page": 14,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"aggregate-demand"
+]
+},
+{
+"id": "2.2.3",
+"short": "Investment (I)",
+"text": "Investment (I): a) Distinction between gross and net investment b) Influences on investment: • the rate of economic growth • business expectations and confidence • Keynes and ‘animal spirits’ • demand for exports • interest rates • access to credit • the influence of government and regulations",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Distinction between gross and net investment"
+},
+{
+"k": "b",
+"t": "Influences on investment: • the rate of economic growth • business expectations and confidence • Keynes and ‘animal spirits’ • demand for exports • interest rates • access to credit • the influence of government and regulations"
+}
+],
+"page": 14,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"aggregate-demand"
+]
+},
+{
+"id": "2.2.4",
+"short": "Government expenditure (G)",
+"text": "Government expenditure (G): a) The main influences on government expenditure: • the trade cycle • fiscal policy",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The main influences on government expenditure: • the trade cycle • fiscal policy"
+}
+],
+"page": 14,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"aggregate-demand"
+]
+},
+{
+"id": "2.2.5",
+"short": "Net trade (X-M)",
+"text": "Net trade (X-M): a) The main influences on the (net) trade balance: • real income • exchange rates • state of the world economy • degree of protectionism • non-price factors",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The main influences on the (net) trade balance: • real income • exchange rates • state of the world economy • degree of protectionism • non-price factors"
+}
+],
+"page": 14,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"aggregate-demand"
+]
+}
+]
+},
+{
+"code": "2.3",
+"title": "Aggregate supply (AS)",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 2,
+"aLevelOnly": false,
+"topic": "aggregate-supply",
+"statements": [
+{
+"id": "2.3.1",
+"short": "The characteristics of AS",
+"text": "The characteristics of AS: a) The AS curve b) The distinction between movement along, and a shift of, the AS curve c) The relationship between short-run AS and long-run AS",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The AS curve"
+},
+{
+"k": "b",
+"t": "The distinction between movement along, and a shift of, the AS curve"
+},
+{
+"k": "c",
+"t": "The relationship between short-run AS and long-run AS"
+}
+],
+"page": 15,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"aggregate-supply"
+]
+},
+{
+"id": "2.3.2",
+"short": "Short-run AS",
+"text": "Short-run AS: a) Factors influencing short-run AS: • changes in costs of raw materials and energy • changes in exchange rates • changes in tax rates",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Factors influencing short-run AS: • changes in costs of raw materials and energy • changes in exchange rates • changes in tax rates"
+}
+],
+"page": 15,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"aggregate-supply"
+]
+},
+{
+"id": "2.3.3",
+"short": "Long-run AS",
+"text": "Long-run AS: a) Different shapes of the long-run AS curve: • Keynesian • classical b) Factors influencing long-run AS: • technological advances • changes in relative productivity • changes in education and skills • changes in government regulations • demographic changes and migration • competition policy",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Different shapes of the long-run AS curve: • Keynesian • classical"
+},
+{
+"k": "b",
+"t": "Factors influencing long-run AS: • technological advances • changes in relative productivity • changes in education and skills • changes in government regulations • demographic changes and migration • competition policy"
+}
+],
+"page": 15,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"aggregate-supply"
+]
+}
+]
+},
+{
+"code": "2.4",
+"title": "National income",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 2,
+"aLevelOnly": false,
+"topic": "national-income-and-the-multiplier",
+"statements": [
+{
+"id": "2.4.1",
+"short": "National income",
+"text": "National income: a) The circular flow of income b) The distinction between income and wealth",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The circular flow of income"
+},
+{
+"k": "b",
+"t": "The distinction between income and wealth"
+}
+],
+"page": 16,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"national-income-and-the-multiplier"
+]
+},
+{
+"id": "2.4.2",
+"short": "Injections and withdrawals",
+"text": "Injections and withdrawals: a) The impact of injections into, and withdrawals from, the circular flow of income",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The impact of injections into, and withdrawals from, the circular flow of income"
+}
+],
+"page": 16,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"national-income-and-the-multiplier"
+]
+},
+{
+"id": "2.4.3",
+"short": "Equilibrium levels of real national output",
+"text": "Equilibrium levels of real national output: a) The concept of equilibrium real national output b) The use of AD/AS diagrams to show how shifts in AD or AS cause changes in the equilibrium price level and real national output",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The concept of equilibrium real national output"
+},
+{
+"k": "b",
+"t": "The use of AD/AS diagrams to show how shifts in AD or AS cause changes in the equilibrium price level and real national output"
+}
+],
+"page": 16,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"national-income-and-the-multiplier"
+]
+},
+{
+"id": "2.4.4",
+"short": "The multiplier",
+"text": "The multiplier: a) The multiplier ratio b) The multiplier process c) Effects of the multiplier on the economy d) Understanding of marginal propensities and their effects on the multiplier: • the marginal propensity to consume (MPC) • the marginal propensity to save (MPS) • the marginal propensity to tax (MPT) • the marginal propensity to import (MPM) e) Calculations of the multiplier using the formulae 1/(1-MPC) and 1/MPW, where MPW=MPS+MPT+MPM f) The significance of the multiplier for shifts in AD",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The multiplier ratio"
+},
+{
+"k": "b",
+"t": "The multiplier process"
+},
+{
+"k": "c",
+"t": "Effects of the multiplier on the economy"
+},
+{
+"k": "d",
+"t": "Understanding of marginal propensities and their effects on the multiplier: • the marginal propensity to consume (MPC) • the marginal propensity to save (MPS) • the marginal propensity to tax (MPT) • the marginal propensity to import (MPM)"
+},
+{
+"k": "e",
+"t": "Calculations of the multiplier using the formulae 1/(1-MPC) and 1/MPW, where MPW=MPS+MPT+MPM"
+},
+{
+"k": "f",
+"t": "The significance of the multiplier for shifts in AD"
+}
+],
+"page": 16,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"national-income-and-the-multiplier"
+]
+}
+]
+},
+{
+"code": "2.5",
+"title": "Economic growth",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 2,
+"aLevelOnly": false,
+"topic": "economic-growth-and-the-trade-cycle",
+"statements": [
+{
+"id": "2.5.1",
+"short": "Causes of growth",
+"text": "Causes of growth: a) Factors which could cause economic growth b) The distinction between actual and potential growth c) The importance of international trade for (export-led) economic growth",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Factors which could cause economic growth"
+},
+{
+"k": "b",
+"t": "The distinction between actual and potential growth"
+},
+{
+"k": "c",
+"t": "The importance of international trade for (export-led) economic growth"
+}
+],
+"page": 17,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"economic-growth-and-the-trade-cycle"
+]
+},
+{
+"id": "2.5.2",
+"short": "Output gaps",
+"text": "Output gaps: a) Distinction between actual growth rates and long-term trends in growth rates b) Understanding of positive and negative output gaps and the difficulties of measurement c) Use of an AD/AS diagram to illustrate an output gap (level of spare capacity) in an economy",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Distinction between actual growth rates and long-term trends in growth rates"
+},
+{
+"k": "b",
+"t": "Understanding of positive and negative output gaps and the difficulties of measurement"
+},
+{
+"k": "c",
+"t": "Use of an AD/AS diagram to illustrate an output gap (level of spare capacity) in an economy"
+}
+],
+"page": 17,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"economic-growth-and-the-trade-cycle"
+]
+},
+{
+"id": "2.5.3",
+"short": "Trade (business) cycle",
+"text": "Trade (business) cycle: a) Understanding of the trade (business) cycle b) Characteristics of a boom c) Characteristics of a recession",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Understanding of the trade (business) cycle"
+},
+{
+"k": "b",
+"t": "Characteristics of a boom"
+},
+{
+"k": "c",
+"t": "Characteristics of a recession"
+}
+],
+"page": 17,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"economic-growth-and-the-trade-cycle"
+]
+},
+{
+"id": "2.5.4",
+"short": "The impact of economic growth",
+"text": "The impact of economic growth: a) The benefits and costs of economic growth and the impact on: • consumers • firms • the government • current and future living standards",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "The benefits and costs of economic growth and the impact on: • consumers • firms • the government • current and future living standards"
+}
+],
+"page": 17,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"economic-growth-and-the-trade-cycle"
+]
+}
+]
+},
+{
+"code": "2.6",
+"title": "Macroeconomic objectives and policies",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 2,
+"aLevelOnly": false,
+"topic": "macroeconomic-objectives",
+"statements": [
+{
+"id": "2.6.1",
+"short": "Possible macroeconomic objectives",
+"text": "Possible macroeconomic objectives: a) Economic growth b) Low unemployment c) Low and stable rate of inflation d) Balance of payments equilibrium on current account e) Balanced government budget f) Protection of the environment g) Greater income equality",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Economic growth"
+},
+{
+"k": "b",
+"t": "Low unemployment"
+},
+{
+"k": "c",
+"t": "Low and stable rate of inflation"
+},
+{
+"k": "d",
+"t": "Balance of payments equilibrium on current account"
+},
+{
+"k": "e",
+"t": "Balanced government budget"
+},
+{
+"k": "f",
+"t": "Protection of the environment"
+},
+{
+"k": "g",
+"t": "Greater income equality"
+}
+],
+"page": 18,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"macroeconomic-objectives"
+]
+},
+{
+"id": "2.6.2",
+"short": "Demand-side policies",
+"text": "Demand-side policies: a) Distinction between monetary and fiscal policy b) Monetary policy instruments: • interest rates • asset purchases to increase the money supply (quantitative easing) c) Fiscal policy instruments: • government spending and taxation d) Distinction between government budget (fiscal) deficit and surplus e) Distinction between, and examples of, direct and indirect taxation f) Use of AD/AS diagrams to illustrate demand-side policies g) The role of the Bank of England: • the role and operation of the Bank of England's Monetary Policy Committee h) Awareness of demand-side policies in the Great Depression and the Global Financial Crisis of 2008 • different interpretations • policy responses in the US and UK i) Strengths and weaknesses of demand-side policies",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Distinction between monetary and fiscal policy"
+},
+{
+"k": "b",
+"t": "Monetary policy instruments: • interest rates • asset purchases to increase the money supply (quantitative easing)"
+},
+{
+"k": "c",
+"t": "Fiscal policy instruments: • government spending and taxation"
+},
+{
+"k": "d",
+"t": "Distinction between government budget (fiscal) deficit and surplus"
+},
+{
+"k": "e",
+"t": "Distinction between, and examples of, direct and indirect taxation"
+},
+{
+"k": "f",
+"t": "Use of AD/AS diagrams to illustrate demand-side policies"
+},
+{
+"k": "g",
+"t": "The role of the Bank of England: • the role and operation of the Bank of England's Monetary Policy Committee"
+},
+{
+"k": "h",
+"t": "Awareness of demand-side policies in the Great Depression and the Global Financial Crisis of 2008 • different interpretations • policy responses in the US and UK"
+},
+{
+"k": "i",
+"t": "Strengths and weaknesses of demand-side policies"
+}
+],
+"page": 18,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"fiscal-and-monetary-policy"
+]
+},
+{
+"id": "2.6.3",
+"short": "Supply-side policies",
+"text": "Supply-side policies: a) Distinction between market-based and interventionist methods b) Market-based and interventionist policies: • to increase incentives • to promote competition • to reform the labour market • to improve skills and quality of the labour force • to improve infrastructure c) Use of AD/AS diagrams to illustrate supply-side policies d) Strengths and weaknesses of supply-side policies",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Distinction between market-based and interventionist methods"
+},
+{
+"k": "b",
+"t": "Market-based and interventionist policies: • to increase incentives • to promote competition • to reform the labour market • to improve skills and quality of the labour force • to improve infrastructure"
+},
+{
+"k": "c",
+"t": "Use of AD/AS diagrams to illustrate supply-side policies"
+},
+{
+"k": "d",
+"t": "Strengths and weaknesses of supply-side policies"
+}
+],
+"page": 19,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"supply-side-policies"
+]
+},
+{
+"id": "2.6.4",
+"short": "Conflicts and trade-offs between objectives and policies",
+"text": "Conflicts and trade-offs between objectives and policies: a) Potential conflicts and trade-offs between the macroeconomic objectives b) Short-run Phillips curve c) Potential policy conflicts and trade-offs",
+"guidance": "",
+"level": "AS & A level",
+"points": [
+{
+"k": "a",
+"t": "Potential conflicts and trade-offs between the macroeconomic objectives"
+},
+{
+"k": "b",
+"t": "Short-run Phillips curve"
+},
+{
+"k": "c",
+"t": "Potential policy conflicts and trade-offs"
+}
+],
+"page": 19,
+"aLevelPart": "",
+"as": true,
+"topics": [
+"macroeconomic-objectives"
+]
+}
+]
+},
+{
+"code": "3.1",
+"title": "Business growth",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 3,
+"aLevelOnly": true,
+"topic": "business-growth-and-objectives",
+"statements": [
+{
+"id": "3.1.1",
+"short": "Sizes and types of firms",
+"text": "Sizes and types of firms: a) Reasons why some firms tend to remain small and why others grow b) Significance of the divorce of ownership from control: the principal-agent problem c) Distinction between public and private sector organisations d) Distinction between profit and not-for-profit organisations",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Reasons why some firms tend to remain small and why others grow"
+},
+{
+"k": "b",
+"t": "Significance of the divorce of ownership from control: the principal-agent problem"
+},
+{
+"k": "c",
+"t": "Distinction between public and private sector organisations"
+},
+{
+"k": "d",
+"t": "Distinction between profit and not-for-profit organisations"
+}
+],
+"page": 22,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"business-growth-and-objectives"
+]
+},
+{
+"id": "3.1.2",
+"short": "Business growth",
+"text": "Business growth: a) How businesses grow: • organic growth • forward and backward vertical integration • horizontal integration • conglomerate integration b) Advantages and disadvantages of: • organic growth • vertical integration • horizontal integration • conglomerate integration c) Constraints on business growth: • size of the market • access to finance • owner objectives • regulation",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "How businesses grow: • organic growth • forward and backward vertical integration • horizontal integration • conglomerate integration"
+},
+{
+"k": "b",
+"t": "Advantages and disadvantages of: • organic growth • vertical integration • horizontal integration • conglomerate integration"
+},
+{
+"k": "c",
+"t": "Constraints on business growth: • size of the market • access to finance • owner objectives • regulation"
+}
+],
+"page": 22,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"business-growth-and-objectives"
+]
+},
+{
+"id": "3.1.3",
+"short": "Demergers",
+"text": "Demergers: a) Reasons for demergers b) Impact of demergers on businesses, workers and consumers",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Reasons for demergers"
+},
+{
+"k": "b",
+"t": "Impact of demergers on businesses, workers and consumers"
+}
+],
+"page": 22,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"business-growth-and-objectives"
+]
+}
+]
+},
+{
+"code": "3.2",
+"title": "Business objectives",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 3,
+"aLevelOnly": true,
+"topic": "business-growth-and-objectives",
+"statements": [
+{
+"id": "3.2.1",
+"short": "Business objectives",
+"text": "Business objectives: a) Different business objectives and reasons for them: • profit maximisation • revenue maximisation • sales maximisation • satisficing b) Diagrams and formulae to illustrate the different business objectives: • profit maximisation • revenue maximisation • sales maximisation",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Different business objectives and reasons for them: • profit maximisation • revenue maximisation • sales maximisation • satisficing"
+},
+{
+"k": "b",
+"t": "Diagrams and formulae to illustrate the different business objectives: • profit maximisation • revenue maximisation • sales maximisation"
+}
+],
+"page": 23,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"business-growth-and-objectives"
+]
+}
+]
+},
+{
+"code": "3.3",
+"title": "Revenues, costs and profits",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 3,
+"aLevelOnly": true,
+"topic": "revenues-costs-and-profits",
+"statements": [
+{
+"id": "3.3.1",
+"short": "Revenue",
+"text": "Revenue: a) Formulae to calculate and understand the relationship between: • total revenue • average revenue • marginal revenue b) Price elasticity of demand and its relationship to revenue concepts (calculation required)",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Formulae to calculate and understand the relationship between: • total revenue • average revenue • marginal revenue"
+},
+{
+"k": "b",
+"t": "Price elasticity of demand and its relationship to revenue concepts (calculation required)"
+}
+],
+"page": 24,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"revenues-costs-and-profits"
+]
+},
+{
+"id": "3.3.2",
+"short": "Costs",
+"text": "Costs: a) Formulae to calculate and understand the relationship between: • total cost • total fixed cost • total variable cost • average (total) cost • average fixed cost • average variable cost • marginal cost b) Derivation of short-run cost curves from the assumption of diminishing marginal productivity c) Relationship between short-run and long-run average cost curves",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Formulae to calculate and understand the relationship between: • total cost • total fixed cost • total variable cost • average (total) cost • average fixed cost • average variable cost • marginal cost"
+},
+{
+"k": "b",
+"t": "Derivation of short-run cost curves from the assumption of diminishing marginal productivity"
+},
+{
+"k": "c",
+"t": "Relationship between short-run and long-run average cost curves"
+}
+],
+"page": 24,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"revenues-costs-and-profits"
+]
+},
+{
+"id": "3.3.3",
+"short": "Economies and diseconomies of scale",
+"text": "Economies and diseconomies of scale: a) Types of economies and diseconomies of scale b) Minimum efficient scale c) Distinction between internal and external economies of scale",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Types of economies and diseconomies of scale"
+},
+{
+"k": "b",
+"t": "Minimum efficient scale"
+},
+{
+"k": "c",
+"t": "Distinction between internal and external economies of scale"
+}
+],
+"page": 24,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"revenues-costs-and-profits"
+]
+},
+{
+"id": "3.3.4",
+"short": "Normal profits, supernormal profits and losses",
+"text": "Normal profits, supernormal profits and losses: a) Condition for profit maximisation b) Normal profit, supernormal profit and losses c) Short-run and long-run shut-down points: diagrammatic analysis",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Condition for profit maximisation"
+},
+{
+"k": "b",
+"t": "Normal profit, supernormal profit and losses"
+},
+{
+"k": "c",
+"t": "Short-run and long-run shut-down points: diagrammatic analysis"
+}
+],
+"page": 24,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"revenues-costs-and-profits"
+]
+}
+]
+},
+{
+"code": "3.4",
+"title": "Market structures",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 3,
+"aLevelOnly": true,
+"topic": "market-structures-and-efficiency",
+"statements": [
+{
+"id": "3.4.1",
+"short": "Efficiency",
+"text": "Efficiency: a) Allocative efficiency b) Productive efficiency c) Dynamic efficiency d) X-inefficiency e) Efficiency/inefficiency in different market structures",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Allocative efficiency"
+},
+{
+"k": "b",
+"t": "Productive efficiency"
+},
+{
+"k": "c",
+"t": "Dynamic efficiency"
+},
+{
+"k": "d",
+"t": "X-inefficiency"
+},
+{
+"k": "e",
+"t": "Efficiency/inefficiency in different market structures"
+}
+],
+"page": 25,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"market-structures-and-efficiency"
+]
+},
+{
+"id": "3.4.2",
+"short": "Perfect competition",
+"text": "Perfect competition: a) Characteristics of perfect competition b) Profit maximising equilibrium in the short run and long run c) Diagrammatic analysis",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Characteristics of perfect competition"
+},
+{
+"k": "b",
+"t": "Profit maximising equilibrium in the short run and long run"
+},
+{
+"k": "c",
+"t": "Diagrammatic analysis"
+}
+],
+"page": 25,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"market-structures-and-efficiency"
+]
+},
+{
+"id": "3.4.3",
+"short": "Monopolistic competition",
+"text": "Monopolistic competition: a) Characteristics of monopolistically competitive markets b) Profit maximising equilibrium in the short run and long run c) Diagrammatic analysis",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Characteristics of monopolistically competitive markets"
+},
+{
+"k": "b",
+"t": "Profit maximising equilibrium in the short run and long run"
+},
+{
+"k": "c",
+"t": "Diagrammatic analysis"
+}
+],
+"page": 25,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"market-structures-and-efficiency"
+]
+},
+{
+"id": "3.4.4",
+"short": "Oligopoly",
+"text": "Oligopoly: a) Characteristics of oligopoly • high barriers to entry and exit • high concentration ratio • interdependence of firms • product differentiation b) Calculation of n-firm concentration ratios and their significance c) Reasons for collusive and non-collusive behaviour d) Overt and tacit collusion; cartels and price leadership e) Simple game theory: the prisoner's dilemma in a simple two firm/two outcome model f) Types of price competition: • price wars • predatory pricing • limit pricing g) Types of non-price competition",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Characteristics of oligopoly • high barriers to entry and exit • high concentration ratio • interdependence of firms • product differentiation"
+},
+{
+"k": "b",
+"t": "Calculation of n-firm concentration ratios and their significance"
+},
+{
+"k": "c",
+"t": "Reasons for collusive and non-collusive behaviour"
+},
+{
+"k": "d",
+"t": "Overt and tacit collusion; cartels and price leadership"
+},
+{
+"k": "e",
+"t": "Simple game theory: the prisoner's dilemma in a simple two firm/two outcome model"
+},
+{
+"k": "f",
+"t": "Types of price competition: • price wars • predatory pricing • limit pricing"
+},
+{
+"k": "g",
+"t": "Types of non-price competition"
+}
+],
+"page": 25,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"oligopoly"
+]
+},
+{
+"id": "3.4.5",
+"short": "Monopoly",
+"text": "Monopoly: a) Characteristics of monopoly b) Profit maximising equilibrium c) Diagrammatic analysis d) Third degree price discrimination: • necessary conditions • diagrammatic analysis • costs and benefits to consumers and producers e) Costs and benefits of monopoly to firms, consumers, employees and suppliers f) Natural monopoly",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Characteristics of monopoly"
+},
+{
+"k": "b",
+"t": "Profit maximising equilibrium"
+},
+{
+"k": "c",
+"t": "Diagrammatic analysis"
+},
+{
+"k": "d",
+"t": "Third degree price discrimination: • necessary conditions • diagrammatic analysis • costs and benefits to consumers and producers"
+},
+{
+"k": "e",
+"t": "Costs and benefits of monopoly to firms, consumers, employees and suppliers"
+},
+{
+"k": "f",
+"t": "Natural monopoly"
+}
+],
+"page": 25,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"monopoly"
+]
+},
+{
+"id": "3.4.6",
+"short": "Monopsony",
+"text": "Monopsony: a) Characteristics and conditions for a monopsony to operate b) Costs and benefits of a monopsony to firms, consumers, employees and suppliers",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Characteristics and conditions for a monopsony to operate"
+},
+{
+"k": "b",
+"t": "Costs and benefits of a monopsony to firms, consumers, employees and suppliers"
+}
+],
+"page": 26,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"monopsony-and-contestability"
+]
+},
+{
+"id": "3.4.7",
+"short": "Contestability",
+"text": "Contestability: a) Characteristics of contestable markets b) Implications of contestable markets for the behaviour of firms c) Types of barrier to entry and exit d) Sunk costs and the degree of contestability",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Characteristics of contestable markets"
+},
+{
+"k": "b",
+"t": "Implications of contestable markets for the behaviour of firms"
+},
+{
+"k": "c",
+"t": "Types of barrier to entry and exit"
+},
+{
+"k": "d",
+"t": "Sunk costs and the degree of contestability"
+}
+],
+"page": 26,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"monopsony-and-contestability"
+]
+}
+]
+},
+{
+"code": "3.5",
+"title": "Labour market",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 3,
+"aLevelOnly": true,
+"topic": "labour-market",
+"statements": [
+{
+"id": "3.5.1",
+"short": "Demand for labour",
+"text": "Demand for labour: a) Factors that influence the demand for labour b) Demand for labour as a derived demand",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Factors that influence the demand for labour"
+},
+{
+"k": "b",
+"t": "Demand for labour as a derived demand"
+}
+],
+"page": 27,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"labour-market"
+]
+},
+{
+"id": "3.5.2",
+"short": "Supply of labour",
+"text": "Supply of labour: a) Factors that influence the supply of labour to a particular occupation b) Market failure in labour markets: the geographical and occupational mobility and immobility of labour",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Factors that influence the supply of labour to a particular occupation"
+},
+{
+"k": "b",
+"t": "Market failure in labour markets: the geographical and occupational mobility and immobility of labour"
+}
+],
+"page": 27,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"labour-market"
+]
+},
+{
+"id": "3.5.3",
+"short": "Wage determination in competitive and non-competitive markets",
+"text": "Wage determination in competitive and non-competitive markets: a) Diagrammatic analysis of labour market equilibrium b) Understanding of current labour market issues c) Government intervention in the labour market: • maximum and minimum wages • public sector wage setting • policies to tackle labour market immobility d) The significance of the elasticity of demand for labour and the elasticity of supply of labour",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Diagrammatic analysis of labour market equilibrium"
+},
+{
+"k": "b",
+"t": "Understanding of current labour market issues"
+},
+{
+"k": "c",
+"t": "Government intervention in the labour market: • maximum and minimum wages • public sector wage setting • policies to tackle labour market immobility"
+},
+{
+"k": "d",
+"t": "The significance of the elasticity of demand for labour and the elasticity of supply of labour"
+}
+],
+"page": 27,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"labour-market"
+]
+}
+]
+},
+{
+"code": "3.6",
+"title": "Government intervention",
+"paper": null,
+"option": null,
+"area": "Micro",
+"theme": 3,
+"aLevelOnly": true,
+"topic": "competition-policy-and-regulation",
+"statements": [
+{
+"id": "3.6.1",
+"short": "Government intervention",
+"text": "Government intervention: a) Government intervention to control mergers b) Government intervention to control monopolies: • price regulation • profit regulation • quality standards • performance targets c) Government intervention to promote competition and contestability: • enhancing competition between firms through promotion of small business • deregulation • competitive tendering for government contracts • privatisation d) Government intervention to protect suppliers and employees: • restrictions on monopsony power of firms • nationalisation",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Government intervention to control mergers"
+},
+{
+"k": "b",
+"t": "Government intervention to control monopolies: • price regulation • profit regulation • quality standards • performance targets"
+},
+{
+"k": "c",
+"t": "Government intervention to promote competition and contestability: • enhancing competition between firms through promotion of small business • deregulation • competitive tendering for government contracts • privatisation"
+},
+{
+"k": "d",
+"t": "Government intervention to protect suppliers and employees: • restrictions on monopsony power of firms • nationalisation"
+}
+],
+"page": 28,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"competition-policy-and-regulation"
+]
+},
+{
+"id": "3.6.2",
+"short": "The impact of government intervention",
+"text": "The impact of government intervention: a) The impact of government intervention on: • prices • profit • efficiency • quality • choice b) Limits to government intervention: • regulatory capture • asymmetric information",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "The impact of government intervention on: • prices • profit • efficiency • quality • choice"
+},
+{
+"k": "b",
+"t": "Limits to government intervention: • regulatory capture • asymmetric information"
+}
+],
+"page": 28,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"competition-policy-and-regulation"
+]
+}
+]
+},
+{
+"code": "4.1",
+"title": "International economics",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 4,
+"aLevelOnly": true,
+"topic": "balance-of-payments",
+"statements": [
+{
+"id": "4.1.1",
+"short": "Globalisation",
+"text": "Globalisation: a) Characteristics of globalisation b) Factors contributing to globalisation in the last 50 years c) Impacts of globalisation and global companies on individual countries, governments, producers and consumers, workers and the environment",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Characteristics of globalisation"
+},
+{
+"k": "b",
+"t": "Factors contributing to globalisation in the last 50 years"
+},
+{
+"k": "c",
+"t": "Impacts of globalisation and global companies on individual countries, governments, producers and consumers, workers and the environment"
+}
+],
+"page": 30,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"globalisation-and-trade"
+]
+},
+{
+"id": "4.1.2",
+"short": "Specialisation and trade",
+"text": "Specialisation and trade: a) Absolute and comparative advantage (numerical and diagrammatic): assumptions and limitations relating to the theory of comparative advantage b) Advantages and disadvantages of specialisation and trade in an international context",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Absolute and comparative advantage (numerical and diagrammatic): assumptions and limitations relating to the theory of comparative advantage"
+},
+{
+"k": "b",
+"t": "Advantages and disadvantages of specialisation and trade in an international context"
+}
+],
+"page": 30,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"globalisation-and-trade"
+]
+},
+{
+"id": "4.1.3",
+"short": "Pattern of trade",
+"text": "Pattern of trade: a) Factors influencing the pattern of trade between countries and changes in trade flows between countries: • comparative advantage • impact of emerging economies • growth of trading blocs and bilateral trading agreements • changes in relative exchange rates",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Factors influencing the pattern of trade between countries and changes in trade flows between countries: • comparative advantage • impact of emerging economies • growth of trading blocs and bilateral trading agreements • changes in relative exchange rates"
+}
+],
+"page": 30,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"globalisation-and-trade"
+]
+},
+{
+"id": "4.1.4",
+"short": "Terms of trade",
+"text": "Terms of trade: a) Calculation of terms of trade b) Factors influencing a country's terms of trade c) Impact of changes in a country's terms of trade",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Calculation of terms of trade"
+},
+{
+"k": "b",
+"t": "Factors influencing a country's terms of trade"
+},
+{
+"k": "c",
+"t": "Impact of changes in a country's terms of trade"
+}
+],
+"page": 30,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"globalisation-and-trade"
+]
+},
+{
+"id": "4.1.5",
+"short": "Trading blocs and the World Trade Organisation (WTO)",
+"text": "Trading blocs and the World Trade Organisation (WTO): a) Types of trading blocs (regional trade agreements and bilateral trade agreements): • free trade areas • customs unions • common markets • monetary unions: conditions necessary for their success with particular reference to the Eurozone b) Costs and benefits of regional trade agreements c) Role of the WTO in trade liberalisation d) Possible conflicts between regional trade agreements and the WTO",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Types of trading blocs (regional trade agreements and bilateral trade agreements): • free trade areas • customs unions • common markets • monetary unions: conditions necessary for their success with particular reference to the Eurozone"
+},
+{
+"k": "b",
+"t": "Costs and benefits of regional trade agreements"
+},
+{
+"k": "c",
+"t": "Role of the WTO in trade liberalisation"
+},
+{
+"k": "d",
+"t": "Possible conflicts between regional trade agreements and the WTO"
+}
+],
+"page": 30,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"trading-blocs-and-protectionism"
+]
+},
+{
+"id": "4.1.6",
+"short": "Restrictions on free trade",
+"text": "Restrictions on free trade: a) Reasons for restrictions on free trade b) Types of restrictions on trade: • tariffs • quotas • subsidies to domestic producers • non-tariff barriers c) Impact of protectionist policies on consumers, producers, governments, living standards, equality",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Reasons for restrictions on free trade"
+},
+{
+"k": "b",
+"t": "Types of restrictions on trade: • tariffs • quotas • subsidies to domestic producers • non-tariff barriers"
+},
+{
+"k": "c",
+"t": "Impact of protectionist policies on consumers, producers, governments, living standards, equality"
+}
+],
+"page": 30,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"trading-blocs-and-protectionism"
+]
+},
+{
+"id": "4.1.7",
+"short": "Balance of payments",
+"text": "Balance of payments: a) Components of the balance of payments: • the current account • the capital and financial accounts b) Causes of deficits and surpluses on the current account c) Measures to reduce a country's imbalance on the current account d) Significance of global trade imbalances",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Components of the balance of payments: • the current account • the capital and financial accounts"
+},
+{
+"k": "b",
+"t": "Causes of deficits and surpluses on the current account"
+},
+{
+"k": "c",
+"t": "Measures to reduce a country's imbalance on the current account"
+},
+{
+"k": "d",
+"t": "Significance of global trade imbalances"
+}
+],
+"page": 31,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"balance-of-payments"
+]
+},
+{
+"id": "4.1.8",
+"short": "Exchange rates",
+"text": "Exchange rates: a) Exchange rate systems: • floating • fixed • managed b) Distinction between revaluation and appreciation of a currency c) Distinction between devaluation and depreciation of a currency d) Factors influencing floating exchange rates e) Government intervention in currency markets through foreign currency transactions and the use of interest rates f) Competitive devaluation/depreciation and its consequences g) Impact of changes in exchange rates: • the current account of the balance of payments (reference to Marshall-Lerner condition and J curve effect) • economic growth and employment/unemployment • rate of inflation • foreign direct investment (FDI) flows",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Exchange rate systems: • floating • fixed • managed"
+},
+{
+"k": "b",
+"t": "Distinction between revaluation and appreciation of a currency"
+},
+{
+"k": "c",
+"t": "Distinction between devaluation and depreciation of a currency"
+},
+{
+"k": "d",
+"t": "Factors influencing floating exchange rates"
+},
+{
+"k": "e",
+"t": "Government intervention in currency markets through foreign currency transactions and the use of interest rates"
+},
+{
+"k": "f",
+"t": "Competitive devaluation/depreciation and its consequences"
+},
+{
+"k": "g",
+"t": "Impact of changes in exchange rates: • the current account of the balance of payments (reference to Marshall-Lerner condition and J curve effect) • economic growth and employment/unemployment • rate of inflation • foreign direct investment (FDI) flows"
+}
+],
+"page": 31,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"exchange-rates"
+]
+},
+{
+"id": "4.1.9",
+"short": "International competitiveness",
+"text": "International competitiveness: a) Measures of international competitiveness: • relative unit labour costs • relative export prices b) Factors influencing international competitiveness c) Significance of international competitiveness: • benefits of being internationally competitive • problems of being internationally uncompetitive",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Measures of international competitiveness: • relative unit labour costs • relative export prices"
+},
+{
+"k": "b",
+"t": "Factors influencing international competitiveness"
+},
+{
+"k": "c",
+"t": "Significance of international competitiveness: • benefits of being internationally competitive • problems of being internationally uncompetitive"
+}
+],
+"page": 31,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"international-competitiveness"
+]
+}
+]
+},
+{
+"code": "4.2",
+"title": "Poverty and inequality",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 4,
+"aLevelOnly": true,
+"topic": "poverty-and-inequality",
+"statements": [
+{
+"id": "4.2.1",
+"short": "Absolute and relative poverty",
+"text": "Absolute and relative poverty: a) Distinction between absolute poverty and relative poverty b) Measures of absolute poverty and relative poverty c) Causes of changes in absolute poverty and relative poverty",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Distinction between absolute poverty and relative poverty"
+},
+{
+"k": "b",
+"t": "Measures of absolute poverty and relative poverty"
+},
+{
+"k": "c",
+"t": "Causes of changes in absolute poverty and relative poverty"
+}
+],
+"page": 32,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"poverty-and-inequality"
+]
+},
+{
+"id": "4.2.2",
+"short": "Inequality",
+"text": "Inequality: a) Distinction between wealth and income inequality b) Measurements of income inequality: • the Lorenz curve (diagrammatic analysis) • the Gini coefficient c) Causes of income and wealth inequality within countries and between countries d) Impact of economic change and development on inequality e) Significance of capitalism for inequality",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Distinction between wealth and income inequality"
+},
+{
+"k": "b",
+"t": "Measurements of income inequality: • the Lorenz curve (diagrammatic analysis) • the Gini coefficient"
+},
+{
+"k": "c",
+"t": "Causes of income and wealth inequality within countries and between countries"
+},
+{
+"k": "d",
+"t": "Impact of economic change and development on inequality"
+},
+{
+"k": "e",
+"t": "Significance of capitalism for inequality"
+}
+],
+"page": 32,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"poverty-and-inequality"
+]
+}
+]
+},
+{
+"code": "4.3",
+"title": "Emerging and developing economies",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 4,
+"aLevelOnly": true,
+"topic": "emerging-and-developing-economies",
+"statements": [
+{
+"id": "4.3.1",
+"short": "Measures of development",
+"text": "Measures of development: a) The three dimensions of the Human Development Index (HDI) (education, health and living standards) and how they are measured and combined b) The advantages and limitations of using the HDI to compare levels of development between countries and over time c) Other indicators of development",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "The three dimensions of the Human Development Index (HDI) (education, health and living standards) and how they are measured and combined"
+},
+{
+"k": "b",
+"t": "The advantages and limitations of using the HDI to compare levels of development between countries and over time"
+},
+{
+"k": "c",
+"t": "Other indicators of development"
+}
+],
+"page": 33,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"emerging-and-developing-economies"
+]
+},
+{
+"id": "4.3.2",
+"short": "Factors influencing growth and development",
+"text": "Factors influencing growth and development: a) Impact of economic factors in different countries: • primary product dependency • volatility of commodity prices • savings gap: Harrod-Domar model • foreign currency gap • capital flight • demographic factors • debt • access to credit and banking • infrastructure • education/skills • absence of property rights b) Impact of non-economic factors in different countries",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Impact of economic factors in different countries: • primary product dependency • volatility of commodity prices • savings gap: Harrod-Domar model • foreign currency gap • capital flight • demographic factors • debt • access to credit and banking • infrastructure • education/skills • absence of property rights"
+},
+{
+"k": "b",
+"t": "Impact of non-economic factors in different countries"
+}
+],
+"page": 33,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"emerging-and-developing-economies"
+]
+},
+{
+"id": "4.3.3",
+"short": "Strategies influencing growth and development",
+"text": "Strategies influencing growth and development: a) Market-orientated strategies: • trade liberalisation • promotion of FDI • removal of government subsidies • floating exchange rate systems • microfinance schemes • privatisation b) Interventionist strategies: • development of human capital • protectionism • managed exchange rates • infrastructure development • promoting joint ventures with global companies • buffer stock schemes c) Other strategies: • industrialisation: the Lewis model • development of tourism • development of primary industries • Fairtrade schemes • aid • debt relief d) Awareness of the role of international institutions and non-government organisations (NGOs): • World Bank • International Monetary Fund (IMF) • NGOs",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Market-orientated strategies: • trade liberalisation • promotion of FDI • removal of government subsidies • floating exchange rate systems • microfinance schemes • privatisation"
+},
+{
+"k": "b",
+"t": "Interventionist strategies: • development of human capital • protectionism • managed exchange rates • infrastructure development • promoting joint ventures with global companies • buffer stock schemes"
+},
+{
+"k": "c",
+"t": "Other strategies: • industrialisation: the Lewis model • development of tourism • development of primary industries • Fairtrade schemes • aid • debt relief"
+},
+{
+"k": "d",
+"t": "Awareness of the role of international institutions and non-government organisations (NGOs): • World Bank • International Monetary Fund (IMF) • NGOs"
+}
+],
+"page": 34,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"emerging-and-developing-economies"
+]
+}
+]
+},
+{
+"code": "4.4",
+"title": "The financial sector",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 4,
+"aLevelOnly": true,
+"topic": "financial-sector",
+"statements": [
+{
+"id": "4.4.1",
+"short": "Role of financial markets",
+"text": "Role of financial markets: a) To facilitate saving b) To lend to businesses and individuals c) To facilitate the exchange of goods and services d) To provide forward markets in currencies and commodities e) To provide a market for equities",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "To facilitate saving"
+},
+{
+"k": "b",
+"t": "To lend to businesses and individuals"
+},
+{
+"k": "c",
+"t": "To facilitate the exchange of goods and services"
+},
+{
+"k": "d",
+"t": "To provide forward markets in currencies and commodities"
+},
+{
+"k": "e",
+"t": "To provide a market for equities"
+}
+],
+"page": 35,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"financial-sector"
+]
+},
+{
+"id": "4.4.2",
+"short": "Market failure in the financial sector",
+"text": "Market failure in the financial sector: a) Consideration of: • asymmetric information • externalities • moral hazard • speculation and market bubbles • market rigging",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Consideration of: • asymmetric information • externalities • moral hazard • speculation and market bubbles • market rigging"
+}
+],
+"page": 35,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"financial-sector"
+]
+},
+{
+"id": "4.4.3",
+"short": "Role of central banks",
+"text": "Role of central banks: a) Key functions of central banks: • implementation of monetary policy • banker to the government • banker to the banks – lender of last resort • role in regulation of the banking industry",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Key functions of central banks: • implementation of monetary policy • banker to the government • banker to the banks – lender of last resort • role in regulation of the banking industry"
+}
+],
+"page": 35,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"financial-sector"
+]
+}
+]
+},
+{
+"code": "4.5",
+"title": "Role of the state in the macroeconomy",
+"paper": null,
+"option": null,
+"area": "Macro",
+"theme": 4,
+"aLevelOnly": true,
+"topic": "public-finances-and-taxation",
+"statements": [
+{
+"id": "4.5.1",
+"short": "Public expenditure",
+"text": "Public expenditure: a) Distinction between capital expenditure, current expenditure and transfer payments b) Reasons for the changing size and composition of public expenditure in a global context c) The significance of differing levels of public expenditure as a proportion of GDP on: • productivity and growth • living standards • crowding out • level of taxation • equality",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Distinction between capital expenditure, current expenditure and transfer payments"
+},
+{
+"k": "b",
+"t": "Reasons for the changing size and composition of public expenditure in a global context"
+},
+{
+"k": "c",
+"t": "The significance of differing levels of public expenditure as a proportion of GDP on: • productivity and growth • living standards • crowding out • level of taxation • equality"
+}
+],
+"page": 36,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"public-finances-and-taxation"
+]
+},
+{
+"id": "4.5.2",
+"short": "Taxation",
+"text": "Taxation: a) Distinction between progressive, proportional and regressive taxes b) The economic effects of changes in direct and indirect tax rates on other variables: • incentives to work • tax revenues: the Laffer curve • income distribution • real output and employment • the price level • the trade balance • FDI flows",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Distinction between progressive, proportional and regressive taxes"
+},
+{
+"k": "b",
+"t": "The economic effects of changes in direct and indirect tax rates on other variables: • incentives to work • tax revenues: the Laffer curve • income distribution • real output and employment • the price level • the trade balance • FDI flows"
+}
+],
+"page": 36,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"public-finances-and-taxation"
+]
+},
+{
+"id": "4.5.3",
+"short": "Public sector finances",
+"text": "Public sector finances: a) Distinction between automatic stabilisers and discretionary fiscal policy b) Distinction between a fiscal deficit and the national debt c) Distinction between structural and cyclical deficits d) Factors influencing the size of fiscal deficits e) Factors influencing the size of national debts f) The significance of the size of fiscal deficits and national debts",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Distinction between automatic stabilisers and discretionary fiscal policy"
+},
+{
+"k": "b",
+"t": "Distinction between a fiscal deficit and the national debt"
+},
+{
+"k": "c",
+"t": "Distinction between structural and cyclical deficits"
+},
+{
+"k": "d",
+"t": "Factors influencing the size of fiscal deficits"
+},
+{
+"k": "e",
+"t": "Factors influencing the size of national debts"
+},
+{
+"k": "f",
+"t": "The significance of the size of fiscal deficits and national debts"
+}
+],
+"page": 36,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"public-finances-and-taxation"
+]
+},
+{
+"id": "4.5.4",
+"short": "Macroeconomic policies in a global context",
+"text": "Macroeconomic policies in a global context: a) Use of fiscal policy, monetary policy, exchange rate policy, supply-side policies and direct controls in different countries, with specific reference to the impact of: • measures to reduce fiscal deficits and national debts • measures to reduce poverty and inequality • changes in interest rates and the supply of money • measures to increase international competitiveness b) Use and impact of macroeconomic policies to respond to external shocks to the global economy c) Measures to control global companies' (transnationals') operations: • the regulation of transfer pricing • limits to government ability to control global companies d) Problems facing policymakers when applying policies: • inaccurate information • risks and uncertainties • inability to control external shocks",
+"guidance": "",
+"level": "A level only",
+"points": [
+{
+"k": "a",
+"t": "Use of fiscal policy, monetary policy, exchange rate policy, supply-side policies and direct controls in different countries, with specific reference to the impact of: • measures to reduce fiscal deficits and national debts • measures to reduce poverty and inequality • changes in interest rates and the supply of money • measures to increase international competitiveness"
+},
+{
+"k": "b",
+"t": "Use and impact of macroeconomic policies to respond to external shocks to the global economy"
+},
+{
+"k": "c",
+"t": "Measures to control global companies' (transnationals') operations: • the regulation of transfer pricing • limits to government ability to control global companies"
+},
+{
+"k": "d",
+"t": "Problems facing policymakers when applying policies: • inaccurate information • risks and uncertainties • inability to control external shocks"
+}
+],
+"page": 37,
+"aLevelPart": "",
+"as": false,
+"topics": [
+"macroeconomic-policy-in-a-global-context"
+]
+}
+]
+}
+]

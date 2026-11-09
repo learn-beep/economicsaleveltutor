@@ -1,0 +1,53 @@
+---
+import { cropsOn } from '../lib/site';
+import Icon from './Icon.astro';
+import { PEARSON_MATERIALS } from '../lib/data';
+const { q, showTopics = false, showStem = true } = Astro.props;
+const pillClass = q.difficulty ? `pill pill-${q.difficulty.toLowerCase()}` : '';
+const fmt = q.format === 'Essay' ? `${q.marks}-mark essay` : q.format === 'Extended response' ? `${q.marks}-mark response` : q.format;
+const hasStem = showStem && cropsOn && q.stemCrop;
+---
+<article class="qcard" id={q.id} data-level={q.level} data-difficulty={q.difficulty || ''} data-year={String(q.year)} data-format={q.format || ''} data-paper={q.paper} data-old={q.notCurrentSpec ? '1' : '0'} hidden={q.notCurrentSpec}>
+  <div class="meta">
+    <strong>{q.series} · {q.level === 'AS' ? 'AS ' : ''}{q.paper} · Q{q.question}</strong>
+    <span>{q.marks} mark{q.marks === 1 ? '' : 's'}</span>
+    {q.aoText && <span>{q.aoText.replace(/,/g, ', ')}</span>}
+    {fmt && <span>{fmt}</span>}
+    {q.choice && <span title="An either/or pair: answer one of the two">Either/or</span>}
+    {q.difficulty && <span class={pillClass}>{q.difficulty}</span>}
+    {showTopics && q.topics.map((t) => <a href={`/questions/${t}/`}>{t.replace(/-/g, ' ')}</a>)}
+  </div>
+  {hasStem && <details class="stem"><summary><Icon name="file" />Data and extracts for question {q.question.replace(/\(.*$/, '')}</summary><img class="crop" data-src={q.stemCrop} alt={q.stemText || `Data and extracts for ${q.series} ${q.paper} question ${q.question}`} decoding="async" /></details>}
+  {cropsOn && q.crop
+    ? <img class="crop" src={q.crop} alt={q.text} loading="lazy" decoding="async" />
+    : <a class="crop-link" href={PEARSON_MATERIALS} rel="noopener">Open this paper on Pearson's site</a>}
+  <div class="actions">
+    {q.mcqAnswers?.length > 0 && <button class="btn" type="button" data-reveal="ans" aria-expanded="false"><Icon name="key" />Answer</button>}
+    {q.msCrop && cropsOn && <button class="btn" type="button" data-reveal="ms" aria-expanded="false"><Icon name="check" />Mark scheme</button>}
+    {(q.erText || (q.erCrop && cropsOn)) && <button class="btn" type="button" data-reveal="er" aria-expanded="false"><Icon name="comment" />Examiner's comment</button>}
+    {q.mistakes?.length > 0 && <button class="btn" type="button" data-reveal="mc" aria-expanded="false"><Icon name="lightbulb" />Notes</button>}
+  </div>
+  {q.mcqAnswers?.length > 0 && <div class="reveal" data-panel="ans" hidden><h4>Answer</h4><p><strong>{q.mcqAnswers.join(' and ')}</strong></p></div>}
+  {q.msCrop && cropsOn && <div class="reveal" data-panel="ms" hidden><h4>Mark scheme{q.marks >= 8 ? ', including the levels grid and indicative content' : ''}</h4><div class="ms-wrap"><img class="crop" data-src={q.msCrop} alt={`Mark scheme for ${q.series} ${q.paper} question ${q.question}`} decoding="async" /></div></div>}
+  {(q.erText || (q.erCrop && cropsOn)) && <div class="reveal" data-panel="er" hidden><h4>Examiner's comment</h4>{q.erText && <p>{q.erText}</p>}{q.erCrop && cropsOn && <img class="crop" data-src={q.erCrop} alt={`Examiner's report extract for ${q.series} ${q.paper} question ${q.question}`} decoding="async" />}</div>}
+  {q.mistakes?.length > 0 && <div class="reveal" data-panel="mc" hidden><h4>Notes from the mark scheme and report</h4><ul>{q.mistakes.map((m) => <li>{m}</li>)}</ul>{q.skills?.length > 0 && <p class="muted">Quantitative skills: {q.skills.map((s) => `${s.code} (${s.text})`).join('; ')}</p>}</div>}
+</article>
+<script>
+  document.querySelectorAll('.qcard').forEach((card) => {
+    card.querySelectorAll('[data-reveal]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-reveal');
+        const panel = card.querySelector(`[data-panel="${key}"]`);
+        if (!panel) return;
+        panel.querySelectorAll('img[data-src]').forEach((img) => { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); });
+        const open = panel.hasAttribute('hidden');
+        panel.toggleAttribute('hidden', !open);
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+    card.querySelectorAll('details.stem').forEach((d) => d.addEventListener('toggle', () => {
+      if (!d.open) return;
+      d.querySelectorAll('img[data-src]').forEach((img) => { img.src = img.getAttribute('data-src'); img.removeAttribute('data-src'); });
+    }, { once: true }));
+  });
+</script>

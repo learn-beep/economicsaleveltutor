@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import b from '../../data/boundaries.json';
+const grades = ['A*', 'A', 'B', 'C', 'D', 'E'];
+---
+<Base title="Edexcel A-level Economics grade boundaries 2022–2026 and grade calculator" description="Every Pearson Edexcel A-level Economics A (9EC0) overall grade boundary since 2022, with a calculator that turns your three paper marks into Pearson's weighted total, a grade and the marks you need for the next one." context="grade-boundaries" leadLine="Short of the grade you need? A tutor can work out exactly where the marks are.">
+  <h1>Grade boundaries and grade calculator</h1>
+  <p>Each paper is marked out of 100, but Pearson weights them before adding: Papers 1 and 2 count 35% each and Paper 3 30%, which is why the overall boundaries are out of 335 rather than 300. The calculator does the weighting for you. Boundaries move every year with the difficulty of the papers, so use the last few series as a range, not a target.</p>
+  <h2>Grade calculator</h2>
+  <div class="calc" id="calc">
+    <label>Paper 1 mark <input type="number" min="0" max="100" id="p1" inputmode="numeric" /></label>
+    <label>Paper 2 mark <input type="number" min="0" max="100" id="p2" inputmode="numeric" /></label>
+    <label>Paper 3 mark <input type="number" min="0" max="100" id="p3" inputmode="numeric" /></label>
+    <label>Compare with <select id="series">{b.alevel.map((r) => <option value={r.series}>{r.series} boundaries</option>)}</select></label>
+    <div class="result" id="result">Enter your marks</div>
+    <div class="muted" id="next"></div>
+  </div>
+  <h2>A level (9EC0), out of 335 (weighted)</h2>
+  <div class="table-wrap"><table><thead><tr><th>Series</th>{grades.map((g) => <th>{g}</th>)}</tr></thead>
+    <tbody>{b.alevel.map((r) => <tr><td>{r.series}</td>{grades.map((g) => <td>{r[g]}</td>)}</tr>)}</tbody></table></div>
+  <p class="muted">{b.source}</p>
+  <h2>AS (8EC0), out of 160</h2>
+  <div class="table-wrap"><table><thead><tr><th>Series</th>{grades.slice(1).map((g) => <th>{g}</th>)}</tr></thead>
+    <tbody>{b.as.map((r) => <tr><td>{r.series}</td>{grades.slice(1).map((g) => <td>{r[g]}</td>)}</tr>)}</tbody></table></div>
+  <script define:vars={{ rows: b.alevel }}>
+    const ids = ['p1', 'p2', 'p3'];
+    const out = document.getElementById('result'), next = document.getElementById('next'), sel = document.getElementById('series');
+    const grades = ['A*', 'A', 'B', 'C', 'D', 'E'];
+    function update() {
+      const marks = ids.map((i) => Number(document.getElementById(i).value));
+      if (marks.some((m) => Number.isNaN(m)) || marks.every((m) => m === 0)) { out.textContent = 'Enter your marks'; next.textContent = ''; return; }
+      const raw = marks.reduce((a, c) => a + c, 0); const total = Math.round(marks[0] * 1.1725 + marks[1] * 1.1725 + marks[2] * 1.005);
+      const row = rows.find((r) => r.series === sel.value);
+      let grade = 'U';
+      for (const g of grades) { if (total >= row[g]) { grade = g; break; } }
+      if (grade === 'A*') { out.textContent = `${raw}/300 raw, ${total}/335 weighted — grade A* on ${row.series} boundaries`; next.textContent = `${total - row['A*']} marks above the A* boundary.`; return; }
+      const idx = grades.indexOf(grade); const nextGrade = idx === -1 ? 'E' : grades[idx - 1]; const need = row[nextGrade] - total;
+      out.textContent = `${raw}/300 raw, ${total}/335 weighted — grade ${grade} on ${row.series} boundaries`;
+      next.textContent = `${need} more weighted mark${need === 1 ? '' : 's'} (about ${Math.ceil(need / 1.1725)} raw marks on Paper 1 or 2) for a ${nextGrade}.`;
+    }
+    [...ids.map((i) => document.getElementById(i)), sel].forEach((el) => el.addEventListener('input', update));
+  </script>
+</Base>

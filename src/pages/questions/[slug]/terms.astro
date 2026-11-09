@@ -1,0 +1,39 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { decks } from '../../../lib/decks';
+export function getStaticPaths() {
+  return decks.map((d) => ({ params: { slug: d.topic }, props: { deck: d } }));
+}
+const { deck } = Astro.props;
+---
+<Base title={`${deck.name}: key terms flashcards for Edexcel A-level Economics`} description={`${deck.terms.length} key terms for ${deck.name.toLowerCase()} as flip cards, with the definition the examiners credit and what they say students get wrong.`} context={`terms:${deck.topic}`} leadLine="Definitions fine but the 4-markers slipping? Message us.">
+  <h1>{deck.name}: key terms</h1>
+  <p>{deck.terms.length} terms. Say the definition out loud, tap to check, then say whether you knew it. <a href={`/questions/${deck.topic}/`}>Back to the topic</a></p>
+  {deck.checked === false && <p class="muted small-text">These cards were written by the site from the specification, mark schemes and examiners' reports and are being checked by our Economics tutor; <a href="/report/">tell us</a> if you spot an error.</p>}
+  <div class="playbar"><span id="progress"></span><span id="boxes" class="muted"></span><span><button class="chip" type="button" id="reset">Reset</button> <button class="chip" type="button" id="print">Print all</button></span></div>
+  <div class="flash" id="flash"></div>
+  <div class="btn-row" id="verdict" hidden><button class="btn" type="button" id="missed">Didn't know it</button><button class="btn btn-accent" type="button" id="knew">Knew it</button></div>
+  <div class="deck-print" id="printlist" hidden>{deck.terms.map((t) => <div class="pcard"><h3>{t.term}</h3><p>{t.definition}</p><p class="muted"><strong>Examiners say</strong> {t.examiner}</p></div>)}</div>
+  <script>
+    import { leitner, shuffle, esc } from '../../../scripts/decks.js';
+    const data = JSON.parse(document.getElementById('deckdata').textContent);
+    const L = leitner(data.key); const ids = data.cards.map((_, i) => String(i));
+    let round = 1, queue = [], i = 0, flipped = false;
+    const $ = (s) => document.querySelector(s);
+    function newRound() { queue = shuffle(L.due(ids, round).slice()); if (!queue.length) { round++; return newRound(); } i = 0; show(); }
+    function show() {
+      const c = data.cards[Number(queue[i])]; flipped = false;
+      $('#progress').textContent = `Card ${i + 1} of ${queue.length} · round ${round}`;
+      const k = L.counts(ids); $('#boxes').textContent = `new ${k[1] || 0} · learning ${(k[2] || 0) + (k[3] || 0)} · known ${k[4] || 0}`;
+      $('#flash').innerHTML = `<div class="card3d" id="card"><div class="face front"><h2>${esc(c.term)}</h2><p class="muted">Tap to check the definition</p></div><div class="face back" hidden><h2>${esc(c.term)}</h2><p>${esc(c.definition)}</p><p class="examiner"><strong>Examiners say</strong> ${esc(c.examiner)}</p></div></div>`;
+      $('#verdict').hidden = true;
+      $('#card').addEventListener('click', () => { if (flipped) return; flipped = true; $('#card .front').hidden = true; $('#card .back').hidden = false; $('#verdict').hidden = false; });
+    }
+    function next(knew) { const id = queue[i]; knew ? L.knew(id) : L.missed(id); if (i < queue.length - 1) { i++; show(); } else { round++; newRound(); } }
+    $('#knew').addEventListener('click', () => next(true)); $('#missed').addEventListener('click', () => next(false));
+    $('#reset').addEventListener('click', () => { L.reset(); round = 1; newRound(); });
+    $('#print').addEventListener('click', () => { $('#printlist').hidden = false; setTimeout(() => { window.print(); $('#printlist').hidden = true; }, 200); });
+    newRound();
+  </script>
+  <script type="application/json" id="deckdata" set:html={JSON.stringify({ cards: deck.terms, key: `malt-deck-terms-${deck.topic}` })} />
+</Base>

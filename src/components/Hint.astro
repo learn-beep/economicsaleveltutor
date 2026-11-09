@@ -1,0 +1,4 @@
+---
+const { id, text } = Astro.props;
+---
+<div class="hint" data-hint={id}><span>{text}</span><button type="button" aria-label="Dismiss">✕</button></div>

@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { allTopics } from '../../lib/data';
+const groups = [
+  ['Theme 1: Introduction to markets and market failure (AS and A level, Paper 1)', 'Theme 1'],
+  ['Theme 2: The UK economy, performance and policies (AS and A level, Paper 2)', 'Theme 2'],
+  ['Theme 3: Business behaviour and the labour market (A level only, Paper 1)', 'Theme 3'],
+  ['Theme 4: A global perspective (A level only, Paper 2)', 'Theme 4'],
+];
+---
+<Base title="Edexcel A-level Economics questions by topic (every paper since 2016)" description="Every Pearson Edexcel Economics A past-paper question since 2016 sorted into 42 topics across the four themes, each with mark schemes, examiner comments and every essay title set." context="questions-index">
+  <h1>Questions by topic</h1>
+  <p>Every Pearson Edexcel AS and A-level Economics A past-paper question since June 2016, sorted into the topics of the four themes. Each topic page shows every question with its data, mark scheme and the examiner's comment, every 20- and 25-mark essay title set, and filters by paper, year and question type. Paper 3 questions appear under whichever theme they assess.</p>
+  {groups.map(([h, key]) => (
+    <>
+      <h2 class="strand-head">{h}</h2>
+      <ul class="topic-list">
+        {allTopics.filter((t) => t.paper === key).map((t) => <li><a href={`/questions/${t.slug}/`}><span>{t.name}</span><span class="strand"><span class={`badge badge-${t.paper.replace('Theme ', '')}`}>{t.paper.replace('Theme ', 'T')}</span> {t.parts} parts</span></a></li>)}
+      </ul>
+    </>
+  ))}
+  <h2>By question type</h2>
+  <p>Or work on a kind of question across every topic: <a href="/questions/type/multiple-choice/">multiple choice</a>, <a href="/questions/type/definitions/">definitions</a>, <a href="/questions/type/calculations/">calculations</a>, <a href="/questions/type/diagrams/">diagrams</a>, <a href="/questions/type/short-answer/">short explain questions</a>, <a href="/questions/type/extended-response/">8- to 15-mark responses</a>, <a href="/questions/type/essays/">20- and 25-mark essays</a>, <a href="/questions/type/data-response/">data-response questions</a>.</p>
+</Base>

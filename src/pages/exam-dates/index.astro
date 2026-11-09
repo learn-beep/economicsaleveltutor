@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import exams from '../../data/exams.json';
+const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Base title={`Edexcel A-level Economics exam dates ${exams.series.split(' ')[1]} (9EC0) with countdown`} description={`Paper 1, 2 and 3 dates for Edexcel A-level Economics in ${exams.series}, from Pearson Edexcel's timetable, with a countdown to Paper 1.`} context="exam-dates" leadLine="Weeks to go and a topic you still can't do? Message us.">
+  <h1>Exam dates: {exams.series}</h1>
+  <p class="muted">Days until Paper 1</p>
+  <p class="countdown" id="countdown" data-date={exams.alevel[0].date}>—</p>
+  <h2>A level (9EC0)</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Paper</th><th>Date</th><th>Session</th><th>Length</th></tr></thead>
+    <tbody>{exams.alevel.map((e) => <tr><td>{e.name}<br /><span class="muted">{e.code}</span></td><td>{fmt(e.date)}</td><td>{e.session}</td><td>{e.length}</td></tr>)}</tbody>
+  </table></div>
+  <p class="muted">{exams.source}. Confirm times with your school: Pearson Edexcel sets the session, your centre sets the start time.</p>
+  <h2>AS (8EC0)</h2>
+  <p class="muted">{exams.asNote}</p>
+  <script>
+    const el = document.getElementById('countdown');
+    const target = new Date(el.dataset.date + 'T09:00:00+01:00');
+    const days = Math.ceil((target - new Date()) / 86400000);
+    el.textContent = days > 0 ? `${days} days` : days === 0 ? 'Today' : 'Done';
+  </script>
+</Base>

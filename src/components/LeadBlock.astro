@@ -1,0 +1,35 @@
+---
+import { waLink } from '../lib/site';
+import site from '../data/site.json';
+const { context = 'site', line = 'Essays stuck in Level 2, or losing the easy marks in Section A? Book a trial session with Lianne, a former Edexcel examiner.' } = Astro.props;
+---
+<section class="lead-block" id="tutor">
+  <h2>Work with an Edexcel economics tutor</h2>
+  <p>{line}</p>
+  <div class="btn-row">
+    <a class="btn btn-wa" href={waLink(context)} rel="noopener">Message us on WhatsApp</a>
+    <a class="btn" href="/tutors/">About Lianne</a>
+  </div>
+  <details class="form-toggle">
+    <summary>Prefer email? Send an enquiry</summary>
+    <form name="enquiry" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="enquiry" />
+      <input type="hidden" name="source" value={context} />
+      <input type="hidden" name="subject" value="Economics tutor enquiry (%{submissionId})" data-remove-prefix />
+      <p class="hidden"><label>Leave this empty: <input name="bot-field" /></label></p>
+      <div class="two">
+        <label>Your name <input name="name" type="text" required autocomplete="name" /></label>
+        <label>Email <input name="email" type="email" required autocomplete="email" /></label>
+      </div>
+      <div class="two">
+        <label>You are a <select name="who"><option>Parent</option><option>Student</option></select></label>
+        <label>Year <select name="year"><option>Year 12 (AS)</option><option>Year 13 (A-level)</option><option>Other</option></select></label>
+      </div>
+      <label>Target grade <input name="target" type="text" placeholder="e.g. A" /></label>
+      <label>Availability <input name="availability" type="text" placeholder="e.g. weekday evenings" /></label>
+      <label>Anything else <textarea name="message"></textarea></label>
+      <p class="muted" style="font-size:.9rem">If you are under 18, please include a parent's contact details. Enquiries go to {site.email} and are deleted once handled. All tutoring is online.</p>
+      <button class="btn btn-accent" type="submit">Send enquiry</button>
+    </form>
+  </details>
+</section>

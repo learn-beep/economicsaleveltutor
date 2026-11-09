@@ -1,0 +1,45 @@
+---
+import Base from '../../../layouts/Base.astro';
+import QuestionCard from '../../../components/QuestionCard.astro';
+import { allQuestions } from '../../../lib/data';
+export function getStaticPaths() {
+  // [slug, matcher, title, intro]. A matcher is a format name, or "feature:<name>" for a feature flag from the bank.
+  const T = [
+    ['multiple-choice', 'Multiple choice', 'Multiple-choice questions', 'Every multiple-choice item from Section A of the AS papers and the A-level papers since 2016, with the answer behind the button. The examiners\' reports never comment on these, so the notes come from the mark schemes.'],
+    ['definitions', 'Definition', 'Definition questions', 'The "define" and "what is meant by" questions, usually 2 marks: a precise definition scores, a description does not.'],
+    ['calculations', 'Calculation', 'Calculation questions', 'Every "calculate" question: percentage changes, elasticities, index numbers, the multiplier, costs and revenues. Show the working; a correct method with an arithmetic slip still earns most of the marks.'],
+    ['diagrams', 'Diagram', 'Diagram questions', 'Questions that ask you to draw or complete a diagram, with the mark scheme\'s own diagram behind the button. Labelled axes, curves and equilibria each earn a mark.'],
+    ['short-answer', 'Short answer', 'Short explain questions (2–6 marks)', 'The "explain" questions that make up most of Sections A and B. The examiners want a point, a development and, where the question says so, a reference to the data.'],
+    ['extended-response', 'Extended response', '8- to 15-mark responses', 'Levels-marked questions: examine, assess and discuss, with the levels grid in each mark scheme. Analysis gets you to Level 2; evaluation that reaches a judgement gets you to the top.'],
+    ['essays', 'Essay', '20- and 25-mark essays', 'Every essay question set: the 20-markers from Section C of the AS papers and the 25-markers from the A-level papers, including the either/or choices.'],
+    ['data-response', 'feature:dataref', 'Data-response questions', 'Every question that asks you to use the extracts or the figures. "With reference to the data" means a number or a quotation from the extract must appear in your answer.'],
+  ];
+  return T.map(([slug, matcher, title, intro]) => ({ params: { type: slug }, props: { slug, matcher, title, intro, others: T.filter((t) => t[0] !== slug) } }));
+}
+const { slug, matcher, title, intro, others } = Astro.props;
+const match = (q) => matcher.startsWith('feature:') ? (q.features || []).includes(matcher.slice(8)) && q.format !== 'Multiple choice' : q.format === matcher;
+const qs = allQuestions.filter((q) => match(q) && !q.notCurrentSpec).sort((a, b) => b.year - a.year);
+const papers = [...new Set(qs.map((q) => q.paper))].sort();
+---
+<Base title={`${title}: Edexcel A-level Economics past-paper questions`} description={`${qs.length} ${title.toLowerCase()} from Edexcel Economics A papers since 2016, with mark schemes and examiner comments.`} context={`type:${slug}`}>
+  <h1>{title}</h1>
+  <p>{intro} {qs.length} questions.</p>
+  <p class="muted">Other types: {others.map((t, i) => <>{i ? ' · ' : ''}<a href={`/questions/type/${t[0]}/`}>{t[2]}</a></>)}</p>
+  <div class="filterbar"><div class="chips" role="group" aria-label="Filter">
+    <button class="chip" type="button" aria-pressed="true" data-filter="">All</button>
+    {papers.map((p) => <button class="chip" type="button" aria-pressed="false" data-filter={`paper:${p}`}>{p}</button>)}
+    <button class="chip" type="button" aria-pressed="false" data-filter="level:AS">AS</button>
+    <button class="chip" type="button" aria-pressed="false" data-filter="level:A level">A level</button>
+  </div><div class="count" id="count"></div></div>
+  {qs.map((q) => <div data-paper={q.paper}><QuestionCard q={q} showTopics={true} /></div>)}
+  <script>
+    const chips = document.querySelectorAll('.chip[data-filter]');
+    const wraps = document.querySelectorAll('[data-paper]');
+    chips.forEach((c) => c.addEventListener('click', () => {
+      chips.forEach((x) => x.setAttribute('aria-pressed', 'false')); c.setAttribute('aria-pressed', 'true');
+      const [key, val] = (c.getAttribute('data-filter') || '').split(':');
+      wraps.forEach((w) => { const card = w.querySelector('.qcard'); const v = key === 'paper' ? w.dataset.paper : card.getAttribute('data-' + key); w.hidden = !!key && v !== val; });
+      document.getElementById('count').textContent = `Showing ${[...wraps].filter((w) => !w.hidden).length} of ${wraps.length}`;
+    }));
+  </script>
+</Base>

@@ -1,0 +1,49 @@
+{
+  "series": "Summer 2027",
+  "source": "Pearson Edexcel GCE summer 2027 examination timetable (final)",
+  "alevel": [
+    {
+      "code": "9EC0/01",
+      "name": "Paper 1: Markets and Business Behaviour",
+      "date": "2027-05-10",
+      "session": "Morning",
+      "length": "2 hours",
+      "marks": 100
+    },
+    {
+      "code": "9EC0/02",
+      "name": "Paper 2: The National and Global Economy",
+      "date": "2027-05-17",
+      "session": "Afternoon",
+      "length": "2 hours",
+      "marks": 100
+    },
+    {
+      "code": "9EC0/03",
+      "name": "Paper 3: Microeconomics and Macroeconomics",
+      "date": "2027-06-07",
+      "session": "Morning",
+      "length": "2 hours",
+      "marks": 100
+    }
+  ],
+  "as": [
+    {
+      "code": "8EC0/01",
+      "name": "Paper 1: Introduction to Markets and Market Failure",
+      "date": "2027-05-11",
+      "session": "Morning",
+      "length": "1 hour 30 minutes",
+      "marks": 80
+    },
+    {
+      "code": "8EC0/02",
+      "name": "Paper 2: The UK Economy – Performance and Policies",
+      "date": "2027-05-17",
+      "session": "Morning",
+      "length": "1 hour 30 minutes",
+      "marks": 80
+    }
+  ],
+  "asNote": ""
+}

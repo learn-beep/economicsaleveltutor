@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import { allQuestions, allTopics } from '../../lib/data';
+const essays = allQuestions.filter((q) => q.format === 'Essay' && !q.notCurrentSpec).sort((a, b) => b.year - a.year);
+const title = (q) => q.text.replace(/^\(?[a-z0-9]+\)?\s*/i, '').replace(/\s*\(\d+\)\s*$/, '').split('\n').slice(0, 2).join(' ').slice(0, 200);
+const byTopic = allTopics.map((t) => [t, essays.filter((q) => q.topics.includes(t.slug))]).filter(([, qs]) => qs.length);
+const n25 = essays.filter((q) => q.marks === 25).length, n20 = essays.length - n25;
+---
+<Base title="Every Edexcel A-level Economics 25-mark essay ever set, by topic, with a timed essay tool" description="All 25-mark (A-level) and 20-mark (AS) essay titles set on Edexcel Economics A since 2016, grouped by topic, with when each was last set and a timed-essay tool that reveals the mark scheme and levels grid." context="essays" leadLine="Want an examiner's eye on your essays? Message us.">
+  <h1>Every essay title, and a timed practice tool</h1>
+  <p>{n25} twenty-five-mark A-level essays and {n20} twenty-mark AS essays, grouped by topic with the series each appeared in. Pick one to write under timed conditions (30 minutes for a 25-marker, 24 for a 20-marker, the exam's pace of 1.2 minutes a mark), then open the mark scheme with its levels grid and indicative content and award yourself a level.</p>
+  <p class="muted">Section C of each A-level paper offers a choice of two 25-mark essays; the AS papers offer a choice of two 20-markers. Both titles of each pair are listed.</p>
+  <h2>Timed essay</h2>
+  <div class="panel">
+    <div class="chips" id="topic-chips">{byTopic.map(([t]) => <button class="chip" type="button" data-topic={t.slug} aria-pressed="false">{t.name.split(':')[0]}</button>)}</div>
+    <div class="chips" data-group="marks"><button class="chip" type="button" data-v="" aria-pressed="true">Either</button><button class="chip" type="button" data-v="25">25-mark (A level)</button><button class="chip" type="button" data-v="20">20-mark (AS)</button></div>
+    <div><button class="btn btn-accent" type="button" id="draw">Give me a title</button> <span class="muted">(random from the selected topics, or from all)</span></div>
+  </div>
+  <div id="play" hidden>
+    <div class="playbar"><span id="which"></span><span class="timer" id="timer">30:00</span><button class="btn" type="button" id="starttimer"><Icon name="timer" />Start the clock</button></div>
+    <div id="card"></div>
+    <div class="panel"><h3>Award yourself a level</h3><div class="markrow" id="levels"><span>Overall level:</span>{[1, 2, 3, 4].map((l) => <button class="chip" type="button" data-level={l}>{l}</button>)}</div><p class="muted" id="levelnote">Edexcel marks these in two parts: knowledge, application and analysis (levels 1–4, 16 of the 25 marks) and evaluation (levels 1–3, 9 marks). Level 4 analysis needs a developed chain of reasoning with a relevant diagram; top-level evaluation reaches a supported judgement, not a list of "however" points. <em>Level descriptors summarised by the site, to be checked by a tutor.</em></p></div>
+  </div>
+  <h2>All titles by topic</h2>
+  {byTopic.map(([t, qs]) => <><h3><a href={`/questions/${t.slug}/`}>{t.name}</a> <span class="muted">({qs.length})</span></h3>
+    <div class="table-wrap"><table><thead><tr><th>Series</th><th>Paper</th><th>Marks</th><th>Title</th></tr></thead>
+    <tbody>{qs.map((q) => <tr><td>{q.series}</td><td>{q.level === 'AS' ? 'AS ' : ''}{q.paper} Q{q.question}</td><td>{q.marks}</td><td><a href={`/questions/${t.slug}/#${q.id}`}>{title(q)}</a></td></tr>)}</tbody></table></div></>)}
+  <script>
+    import { loadBank, card, saveScore, shuffle, fmtTime } from '../../scripts/player.js';
+    const $ = (s) => document.querySelector(s);
+    const sel = new Set(); let marks = '', bank = null, timer = null, secs = 1800, current = null;
+    document.querySelectorAll('[data-topic]').forEach((b) => b.addEventListener('click', () => { const on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', String(on)); on ? sel.add(b.dataset.topic) : sel.delete(b.dataset.topic); }));
+    document.querySelectorAll('[data-group="marks"] .chip').forEach((b) => b.addEventListener('click', () => { document.querySelectorAll('[data-group="marks"] .chip').forEach((x) => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); marks = b.dataset.v; }));
+    loadBank().then((b) => { bank = b; });
+    $('#draw').addEventListener('click', () => {
+      if (!bank) return;
+      const pool = bank.q.filter((q) => q.f === 'Essay' && !q.old && q.c && (!marks || q.m === Number(marks)) && (!sel.size || q.t.some((t) => sel.has(t))));
+      if (!pool.length) return;
+      current = shuffle(pool)[0];
+      secs = Math.round(current.m * 72);
+      $('#play').hidden = false; $('#which').textContent = `${current.s} ${current.l === 'AS' ? 'AS ' : ''}${current.p} Q${current.q} (${current.m} marks)`; $('#timer').textContent = fmtTime(secs); if (timer) clearInterval(timer);
+      $('#levelnote').innerHTML = current.m === 25
+        ? 'Edexcel marks 25-markers in two parts: knowledge, application and analysis (levels 1–4, 16 marks) and evaluation (levels 1–3, 9 marks). Level 4 analysis needs a developed chain of reasoning with a relevant diagram; top-level evaluation reaches a supported judgement. <em>Levels summarised by the site, to be checked by a tutor.</em>'
+        : 'Edexcel marks AS 20-markers in two parts: knowledge, application and analysis (levels 1–4, 14 marks) and evaluation (levels 1–3, 6 marks). <em>Levels summarised by the site, to be checked by a tutor.</em>';
+      const holder = $('#card'); holder.innerHTML = ''; holder.appendChild(card(current));
+      document.querySelectorAll('[data-level]').forEach((x) => x.setAttribute('aria-pressed', 'false'));
+      window.scrollTo({ top: $('#play').offsetTop - 80, behavior: 'smooth' });
+    });
+    $('#starttimer').addEventListener('click', () => { if (timer) clearInterval(timer); timer = setInterval(() => { secs--; $('#timer').textContent = fmtTime(Math.max(secs, 0)); if (secs <= 0) { clearInterval(timer); $('#timer').textContent = "Time's up"; } }, 1000); });
+    document.querySelectorAll('[data-level]').forEach((b) => b.addEventListener('click', () => {
+      document.querySelectorAll('[data-level]').forEach((x) => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true');
+      if (current) { const table = current.m === 25 ? [0, 5, 11, 17, 22] : [0, 4, 9, 14, 18]; saveScore(current.t, table[Number(b.dataset.level)], current.m, current.id); }
+    }));
+  </script>
+</Base>
