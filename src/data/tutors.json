@@ -14,8 +14,15 @@
       "Essay and data-response marking with examiner-style written feedback",
       "Mock-paper walk-throughs before the May and June exams"
     ],
-    "reviews": [],
-    "reviewSource": "",
-    "fee": null
+    "reviews": [
+      {
+        "who": "Julian Kwan",
+        "when": "November 2026",
+        "stars": 5,
+        "text": "I had A level Economics tuition with Liane, she is a superb tutor who helped me get an A*. What made her lessons different from most other tutors is the personalised additional ‘homework’ she would set to complement every lesson; being able to answer a couple essay questions every week and have them marked and then analysed during the next lesson was enormously helpful in building exam technique. This was helpful because for a lot of people, their school subject teachers may not have the time to mark essays you hand in, nor discuss it at the depth that she does. Additionally, Liane knows the exam inside out and is well versed in exam technique."
+      }
+    ],
+    "reviewSource": "Google reviews of A-level Tutors Online",
+    "fee": "£100 per hour"
   }
 ]
