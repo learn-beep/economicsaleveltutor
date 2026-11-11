@@ -7,6 +7,8 @@ import LeadBlock from '../components/LeadBlock.astro';
 import site from '../data/site.json';
 const { title, description = 'Free Edexcel A-level Economics past-paper questions, mark schemes, examiner comments and practice, with Pearson Edexcel specialist tutors.', context = 'site', lead = true, leadLine } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.domain).href;
+const isHome = Astro.url.pathname === '/';
+const websiteLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, alternateName: [new URL(site.domain).hostname.replace(/^www\./, ''), 'Edexcel A-level Economics Tutor'], url: site.domain + '/' };
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -17,8 +19,13 @@ const canonical = new URL(Astro.url.pathname, site.domain).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/favicon-192.png" />
+    <meta property="og:site_name" content={site.name} />
+    <meta name="application-name" content={site.name} />
+    {isHome && <script type="application/ld+json" set:html={JSON.stringify(websiteLd)} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
-        <meta property="og:title" content={title} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL('/og.png', site.domain).href} />
