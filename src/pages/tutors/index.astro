@@ -35,7 +35,6 @@ const desc = tutor ? tutor.bio[0] : 'Online one-to-one A-level Economics tutorin
     <li>{tutor ? tutor.name : 'The tutor'} gets in touch to arrange the trial lesson.</li>
     <li>Lessons are booked directly with {tutor ? 'her' : 'the tutor'} from then on.</li>
   </ol>
-  <p class="muted">DBS-checked; references available.</p>
   {tutor?.reviews?.length > 0 && <>
     <h2>What students say</h2>
     {tutor.reviews.map((r) => <blockquote class="review"><p>{r.text}</p><footer>{'★'.repeat(r.stars)} {r.who}, {r.when}</footer></blockquote>)}
